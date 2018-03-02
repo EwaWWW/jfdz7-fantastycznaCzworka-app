@@ -1,4 +1,4 @@
-export default wishes = [
+export default [
         {wish: "18 urodziny", id: 1, category: "18-birthday"},
         {wish:"40 urodziny", id: 2, category: "40-birthday"},
         {wish:"dla dziadkow", id: 3, category: "grandparent"},
