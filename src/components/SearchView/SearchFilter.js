@@ -10,11 +10,12 @@ class SearchFilter extends Component {
 
 
     render() {
+
         const { active } = this.state;
         return (
             wishes.map(wish => {
                 return (
-                    <Button size='medium' basic color='red' toggle active={active} onClick={this.handleClick}>
+                    <Button key={wish.id} basic color='red' toggle active={active} onClick={this.handleClick}>
                         {wish.category}
                     </Button>
                 )

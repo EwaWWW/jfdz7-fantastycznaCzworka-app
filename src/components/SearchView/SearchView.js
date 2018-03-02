@@ -5,7 +5,9 @@ import SearchFilter from "./SearchFilter";
 class SearchView extends Component {
   render() {
     return (
+        <React.Fragment>
         <SearchFilter/>
+        </React.Fragment>
     )
   }
 }
