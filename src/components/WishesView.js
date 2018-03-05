@@ -16,9 +16,9 @@ export default () => {
             <tbody>
                 {wishesIds.map(id =>
                     <tr key={id}>
-                        <td class="alignc">{ wishes[id].category }</td>
-                        <td class="alignc">{ wishes[id].wish }</td>
-                        <td class="alignc"><i class="material-icons">star_border</i></td>
+                        <td className="alignc">{ wishes[id].category }</td>
+                        <td className="alignc">{ wishes[id].wish }</td>
+                        <td className="alignc"><i className="material-icons">star_border</i></td>
                     </tr>
                 )}
             </tbody>
