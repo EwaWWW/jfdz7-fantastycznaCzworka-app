@@ -1,0 +1,19 @@
+table{
+    width: 80%;
+    margin: 0 auto 20px auto;
+    font-size: 14px;
+    border: solid 2px #af987a;
+    background-color: #cfb994;
+}
+td {
+    padding: 5px 0;
+    border-top: solid 2px #af987a;
+}
+
+.wish-text{
+    text-align: justify;
+}
+
+.alignc{
+    text-align: center;
+}

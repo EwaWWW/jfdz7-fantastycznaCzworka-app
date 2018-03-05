@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import wishes from '../Data/wishes';
+import '../style/WishesView.css'
 
 export default () => {
     const wishesIds = Object.keys(wishes);
@@ -7,15 +8,17 @@ export default () => {
           <table>
             <thead>
                 <tr>
-                    <td><b>Category</b></td>
-                    <td><b>Wish</b></td>
+                    <th><b>Okazja</b></th>
+                    <th><b>Życzenie</b></th>
+                    <th><b>Dodaj do ulubionych</b></th>
                 </tr>
             </thead>
             <tbody>
                 {wishesIds.map(id =>
                     <tr key={id}>
-                        <td>{ wishes[id].category }</td>
-                        <td>{ wishes[id].wish }</td>
+                        <td class="alignc">{ wishes[id].category }</td>
+                        <td class="alignc">{ wishes[id].wish }</td>
+                        <td class="alignc"><i class="material-icons">star_border</i></td>
                     </tr>
                 )}
             </tbody>
