@@ -7,12 +7,14 @@ class App extends Component {
   render() {
     return (
       <React.Fragment>
-        <Grid container>
-            <Grid.Column>
 
-               <MenuBar/>
-            </Grid.Column>
-        </Grid>
+<Grid container>
+<Grid.Column>
+    <MenuBar/>
+</Grid.Column>
+</Grid>
+
+
       </React.Fragment>
     );
   }
