@@ -6,16 +6,16 @@ import wishes from '../../Data/wishes';
 class SearchFilter extends Component {
     state = {};
 
-    handleClick = () => this.setState({ active: !this.state.active });
+    handleToggleCategory = event => {
 
+    };
 
     render() {
 
-        const { active } = this.state;
         return (
             wishes.map(wish => {
                 return (
-                    <Button key={wish.id} color='red' toggle active={active} onClick={this.handleClick}>
+                    <Button onClick={this.handleToggleCategory}>
                         {wish.category}
                     </Button>
                 )

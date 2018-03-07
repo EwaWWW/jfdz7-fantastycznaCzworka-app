@@ -1,8 +1,11 @@
-import React, {Component} from 'react'
+import React from 'react'
 import wishes from '../Data/wishes';
 import '../style/WishesView.css'
 
 export default () => {
+
+
+
     const wishesIds = Object.keys(wishes);
       return <React.Fragment>
           <table>
