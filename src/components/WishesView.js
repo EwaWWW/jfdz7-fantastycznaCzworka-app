@@ -8,7 +8,7 @@ export default () => {
           <table>
             <thead>
                 <tr>
-                    <th><b>Okazja</b></th>
+                    <th><b>Kategoria</b></th>
                     <th><b>Życzenie</b></th>
                     <th><b>Dodaj do ulubionych</b></th>
                 </tr>
