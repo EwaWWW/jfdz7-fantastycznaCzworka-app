@@ -8,7 +8,6 @@ class App extends Component {
     return (
       <React.Fragment>
           <SearchView/>
-          <WishesView/>
       </React.Fragment>
     );
   }
