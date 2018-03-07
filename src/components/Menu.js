@@ -1,12 +1,19 @@
 import React, { Component } from 'react'
-import { Button } from 'semantic-ui-react'
+import { Button, Menu, Icon } from 'semantic-ui-react'
 
 class MenuBar extends Component {
     render() {
         return (
-            <React.Fragment>
-                <Button basic color='red'>Red</Button>
-            </React.Fragment>
+            <Menu icon='labeled'>
+                <Menu.Item>
+                    <Icon name='list layout'/>
+                </Menu.Item>
+
+                <Menu.Item position='right'>
+                    <Icon name='user'/>
+                    Zaloguj się
+                </Menu.Item>
+            </Menu>
         )
     }
 }
