@@ -13,10 +13,8 @@ class App extends Component {
     <MenuBar/>
 </Grid.Column>
 </Grid>
-
-
       </React.Fragment>
-    );
+    )
   }
 }
 
