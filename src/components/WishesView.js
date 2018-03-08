@@ -1,14 +1,14 @@
 import React from 'react'
 import wishes from '../Data/wishes';
 import '../style/WishesView.css'
+import { Table } from 'semantic-ui-react'
+
 
 export default () => {
 
-
-
     const wishesIds = Object.keys(wishes);
       return <React.Fragment>
-          <table>
+          <Table class="ui inverted grey table">
             <thead>
                 <tr>
                     <th><b>Kategoria</b></th>
@@ -19,12 +19,12 @@ export default () => {
             <tbody>
                 {wishesIds.map(id =>
                     <tr key={id}>
-                        <td className="alignc">{ wishes[id].category }</td>
-                        <td className="alignc">{ wishes[id].wish }</td>
-                        <td className="alignc"><i className="material-icons">star_border</i></td>
+                        <td>{ wishes[id].category }</td>
+                        <td>{ wishes[id].wish }</td>
+                        <td><i className="material-icons">star_border</i></td>
                     </tr>
                 )}
             </tbody>
-          </table>
+          </Table>
       </React.Fragment>
   }
