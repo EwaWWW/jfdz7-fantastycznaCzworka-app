@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import {Menu, Icon, Segment, Sidebar, Header} from 'semantic-ui-react'
-
+import WishesView from "./WishesView";
 
 
 class MenuBar extends Component {
@@ -39,9 +39,7 @@ class MenuBar extends Component {
                     <Sidebar.Pusher>
                         <Segment basic>
                             <Header as='h3'>Application Content</Header>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio molestiae mollitia
-                                numquam sapiente velit! Ab asperiores delectus dignissimos distinctio eius ipsa ipsam odio
-                                quae quo, rerum, sit sunt suscipit veritatis.</p>
+                            <WishesView/>
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto dicta doloribus error
                                 fugiat,
                                 laborum laudantium magnam maxime minima molestias nesciunt, non nulla provident quis tenetur

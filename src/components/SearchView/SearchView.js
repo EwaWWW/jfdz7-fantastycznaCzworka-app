@@ -1,6 +1,5 @@
 import React, {Component} from 'react'
 import SearchFilter from "./SearchFilter";
-import WishesView from '../WishesView';
 
 
 class SearchView extends Component {
@@ -8,7 +7,6 @@ class SearchView extends Component {
         return (
             <React.Fragment>
                 <SearchFilter/>
-                <WishesView/>
             </React.Fragment>
         )
     }
