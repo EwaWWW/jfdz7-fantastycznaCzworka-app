@@ -5,7 +5,13 @@ import { Table } from 'semantic-ui-react'
 
 export default () => {
 
-    const wishesIds = Object.keys(wishes);
+    this.state = {
+        allWishes: wishes
+    };
+
+    console.log(this.state);
+
+    const wishesIds = Object.keys(this.state.allWishes);
     if (wishes.length > 0) {
       return (
           <Table class="ui inverted grey table">

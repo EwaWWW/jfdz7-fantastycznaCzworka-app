@@ -1,23 +1,19 @@
 import React, {Component} from 'react'
 import SearchFilter from "./SearchFilter";
 import WishesView from "./WishesView"
-
+import wishes from "../../Data/wishes"
 class SearchView extends Component {
 
 
+    filterWishes() {
 
-    filterWishes(e) {
-        const category = e.currentTarget.value;
-        const filteredWishes = this.getFilteredUsers(category);
-        this.setState({
-            filteredWishes
-        });
     }
+
 
 render() {
         return (
             <React.Fragment>
-                <SearchFilter onClick={this.filterWishes}/>
+                <SearchFilter onButtonToggle={this.filterWishes}/>
                 <WishesView/>
             </React.Fragment>
         )
