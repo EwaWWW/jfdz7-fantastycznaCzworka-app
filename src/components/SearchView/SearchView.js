@@ -9,17 +9,23 @@ class SearchView extends Component {
         allWishes: wishes
     };
 
-    filterWishes() {
-    
+    filterWishes(category) {
+        const filteredWishes = this.getFilteredWishesForCategory(category);
+        this.setState({
+            filteredWishes
+        });
+        console.log(this.state)
     }
 
+    getFilteredWishesForCategory(category) {
+        return this.state.allWishes.filter(wish => wish.includes(category) )
+    }
 
 render() {
         return (
             <React.Fragment>
                 <SearchFilter
                     onButtonToggle={this.filterWishes}/>
-
                 {this.state.allWishes.map(wish =>
                     <WishesView
                         id={wish.id}
