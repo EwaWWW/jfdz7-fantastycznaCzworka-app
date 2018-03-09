@@ -25,7 +25,7 @@ render() {
         return (
             <React.Fragment>
                 <SearchFilter
-                    onButtonToggle={this.filterWishes}/>
+                    onButtonToggle={this.filterWishes.bind(this)}/>
                 {this.state.allWishes.map(wish =>
                     <WishesView
                         id={wish.id}

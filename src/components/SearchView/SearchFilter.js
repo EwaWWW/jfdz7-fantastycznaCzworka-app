@@ -5,6 +5,8 @@ import wishes from '../../Data/wishes';
 
 class SearchFilter extends Component {
 
+
+
     onButtonToggle = (e) => {
         const category = e.target.dataset.wishCategory;
         this.props.filterWishes(category);
