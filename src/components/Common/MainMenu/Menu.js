@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import {Menu, Icon, Segment, Sidebar, Header} from 'semantic-ui-react'
-import WishesView from "./WishesView";
+import {Menu, Icon, Segment, Sidebar, Header, Grid} from 'semantic-ui-react'
+import WishesView from "../../Views/WishesView/WishesView";
 
 
 class MenuBar extends Component {
@@ -11,7 +11,9 @@ class MenuBar extends Component {
         const { visible } = this.state;
 
         return (
-            <React.Fragment>
+                <Grid container>
+                    <Grid.Column>
+                    </Grid.Column>
             <Menu icon='labeled'>
                 <Menu.Item onClick={this.toggleVisibility}>
                     <Icon name='list layout'/>
@@ -70,7 +72,7 @@ class MenuBar extends Component {
                         </Segment>
                     </Sidebar.Pusher>
                 </Sidebar.Pushable>
-            </React.Fragment>
+                </Grid>
         )
 
 

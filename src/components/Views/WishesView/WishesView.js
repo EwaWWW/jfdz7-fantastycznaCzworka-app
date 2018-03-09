@@ -1,6 +1,6 @@
 import React from 'react'
-import wishes from '../Data/wishes';
-import '../style/WishesView.css'
+import wishes from '../../../Data/wishes';
+import '../../../style/WishesView.css'
 import { Table } from 'semantic-ui-react'
 
 

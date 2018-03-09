@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import { Button } from 'semantic-ui-react'
 
-import wishes from '../../Data/wishes';
+import wishes from '../../../Data/wishes';
 
 class SearchFilter extends Component {
     state = {};
