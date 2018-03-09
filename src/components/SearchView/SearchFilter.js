@@ -19,7 +19,7 @@ class SearchFilter extends Component {
                     <Button value={wish.category}
                             onClick={this.onButtonToggle}
                             toggle>
-                        {wish.category}
+                            {wish.category}
                     </Button>
                 )
             }))

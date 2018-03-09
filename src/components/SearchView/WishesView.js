@@ -1,40 +1,31 @@
-import React from 'react'
+import React, {Component} from 'react';
 import wishes from '../../Data/wishes';
-import '../../style/WishesView.css'
-import { Table } from 'semantic-ui-react'
+import '../../style/WishesView.css';
+import {Table} from 'semantic-ui-react';
 
-export default () => {
-
-    this.state = {
-        allWishes: wishes
-    };
-
-    console.log(this.state);
-
-    const wishesIds = Object.keys(this.state.allWishes);
-    if (wishes.length > 0) {
-      return (
-          <Table class="ui inverted grey table">
-            <thead>
+class WishesView extends Component {
+    render() {
+        const { category, wish, id } = this.props;
+        return (
+            <Table class="ui inverted grey table">
+                <thead>
                 <tr>
                     <th><b>Kategoria</b></th>
                     <th><b>Życzenie</b></th>
                     <th><b>Dodaj do ulubionych</b></th>
                 </tr>
-            </thead>
-            <tbody>
-                {wishesIds.map(id =>
-                    <tr key={id}>
-                        <td>{ wishes[id].category }</td>
-                        <td>{ wishes[id].wish }</td>
-                        <td><i className="material-icons">star_border</i></td>
-                    </tr>
-                )}
-            </tbody>
-          </Table>
-      )
-  }
-  return (
-      <p>Brak pasujących życzeń</p>
-  )
+                </thead>
+                <tbody>
+                <tr key={id}>
+                    <td>{category}</td>
+                    <td>{wish}</td>
+                    <td><i className="material-icons">star_border</i></td>
+                </tr>
+                </tbody>
+            </Table>
+        )
+    }
 }
+
+
+export default WishesView;
