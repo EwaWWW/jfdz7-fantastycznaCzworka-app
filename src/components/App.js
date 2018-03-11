@@ -15,10 +15,7 @@ class App extends Component {
       <React.Fragment>
           <Grid container>
               <Grid.Column>
-
             <MenuBar/>
-
-
               </Grid.Column>
           </Grid>
 
