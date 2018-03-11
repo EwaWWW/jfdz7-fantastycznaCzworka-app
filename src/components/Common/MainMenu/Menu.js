@@ -1,8 +1,12 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
+import { Route} from 'react-router-dom'
 
+import UsersView from '../../Views/UsersView'
+import SearchView from '../../Views/SearchView'
+import WishesView from '../../Views/WishesView'
 
-import {Menu, Icon, Segment, Sidebar, Header} from 'semantic-ui-react'
+import {Menu, Icon, Segment, Sidebar} from 'semantic-ui-react'
 
 
 
@@ -41,7 +45,11 @@ class MenuBar extends Component {
                     </Sidebar>
                     <Sidebar.Pusher>
                         <Segment basic>
-                            <Header as='h3'>Application Content</Header>
+                            <Route exact path="/" component={SearchView}/>
+                            <Route path="/users" component={UsersView} />
+                            <Route path="/wishes" component={WishesView} />
+
+
 
                         </Segment>
                     </Sidebar.Pusher>
