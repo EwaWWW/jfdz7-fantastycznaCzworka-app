@@ -5,11 +5,10 @@ import wishes from '../../Data/wishes';
 
 class SearchFilter extends Component {
 
-
-
     onButtonToggle = (e) => {
-        const category = e.target.dataset.wishCategory;
-        this.props.filterWishes(category);
+        const category = e.target.dataset.category;
+        this.props.filterToggle(category);
+
         console.log(category)
 
     };
@@ -19,7 +18,7 @@ class SearchFilter extends Component {
         return (
             wishes.map(wish => {
                 return (
-                    <Button data-wish-category={wish.category}
+                    <Button data-category={wish.category}
                             onClick={this.onButtonToggle}
                             toggle>
                             {wish.category}
