@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 import { Button } from 'semantic-ui-react'
 
 import wishes from '../../Data/wishes';
@@ -18,9 +18,9 @@ class SearchFilter extends Component {
         return (
             wishes.map(wish => {
                 return (
-                    <Button data-category={wish.category}
-                            onClick={this.onButtonToggle}
-                            toggle>
+                    <Button
+                            data-category={wish.category}
+                            onClick={this.onButtonToggle}>
                             {wish.category}
                     </Button>
                 )

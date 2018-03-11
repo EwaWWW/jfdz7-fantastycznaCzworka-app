@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import '../../style/WishesView.css';
 import {Table} from 'semantic-ui-react';
 
+
 class WishesView extends Component {
     render() {
         const { category, wish, id } = this.props;

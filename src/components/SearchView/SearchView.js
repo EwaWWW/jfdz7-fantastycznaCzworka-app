@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import SearchFilter from "./SearchFilter";
-import WishesView from "./WishesView"
+import WishesView from "./WishesList"
 import wishes from "../../Data/wishes"
 
 class SearchView extends Component {
@@ -21,8 +21,7 @@ class SearchView extends Component {
 
 render() {
 
-    const wishes = this.state.category ? this.state.allWishes.filter(wish => wish.category === this.state.category
-        )
+    const wishes = this.state.category ? this.state.allWishes.filter(wish => wish.category === this.state.category)
          :
         this.state.allWishes;
         return (
