@@ -1,6 +1,9 @@
 import React, {Component} from 'react'
 import { Button, Checkbox, Icon, Table } from 'semantic-ui-react'
 
+import users from '../../../Data/users'
+import wishes from '../../../Data/wishes'
+
 class UsersView extends Component {
 
 
@@ -21,16 +24,19 @@ render() {
     </Table.Header>
 
         <Table.Body>
-            <Table.Row>
+            {users.map(user =>
 
-                <Table.Cell>John Lilki</Table.Cell>
-                <Table.Cell>September 14, 2013</Table.Cell>
-                <Table.Cell>jhlilk22@yahoo.com</Table.Cell>
-                <Table.Cell>No</Table.Cell>
-                <Table.Cell collapsing>
-                    <Checkbox label="Wyślij automatycznie"/>
-                </Table.Cell>
-            </Table.Row>
+                <Table.Row key={user.id}>
+                        <Table.Cell>{user.name}</Table.Cell>
+                        <Table.Cell>dfdf</Table.Cell>
+                        <Table.Cell>{user.email}</Table.Cell>
+                        <Table.Cell>{user.date}</Table.Cell>
+                        <Table.Cell collapsing>
+                            <Checkbox label="Wyślij automatycznie"/>
+                        </Table.Cell>
+                    </Table.Row>
+
+            )}
 
         </Table.Body>
 
