@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
 import SearchFilter from "./SearchFilter"
-import WishesView from "../../SearchView/WishesList"
+import WishesView from "../../Views/WishesView/WishesView"
 import wishes from "../../../Data/wishes"
 import AddWish from '../WishesView/AddWish'
 
