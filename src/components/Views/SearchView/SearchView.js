@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
+
 import SearchFilter from "./SearchFilter"
-import WishesView from "../WishesView"
+import WishesView from "../../SearchView/WishesList"
 import wishes from "../../../Data/wishes"
+import AddWish from '../WishesView/AddWish'
 
 class SearchView extends Component {
 
@@ -33,7 +35,9 @@ render() {
                         id={wish.id}
                         wish={wish.wish}
                         category={wish.category}/>
+
                 )}
+                <AddWish/>
             </React.Fragment>
         )
     }
