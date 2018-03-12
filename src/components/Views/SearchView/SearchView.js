@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import SearchFilter from "./SearchFilter";
-import WishesView from "./WishesList"
-import wishes from "../../Data/wishes"
+import SearchFilter from "./SearchFilter"
+import WishesView from "../WishesView"
+import wishes from "../../../Data/wishes"
 
 class SearchView extends Component {
 
