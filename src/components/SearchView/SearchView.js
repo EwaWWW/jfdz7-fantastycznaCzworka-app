@@ -18,7 +18,6 @@ class SearchView extends Component {
         )
     }
 
-
 render() {
 
     const wishes = this.state.category ? this.state.allWishes.filter(wish => wish.category === this.state.category)

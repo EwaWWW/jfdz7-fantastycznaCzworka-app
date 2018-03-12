@@ -17,8 +17,9 @@ class SearchFilter extends Component {
 
         return (
             wishes.map(wish => {
-                return (
+                    return (
                     <Button
+                            color='red'
                             data-category={wish.category}
                             onClick={this.onButtonToggle}>
                             {wish.category}
