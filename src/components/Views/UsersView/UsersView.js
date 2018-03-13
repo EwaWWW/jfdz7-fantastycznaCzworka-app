@@ -4,6 +4,20 @@ import { Button, Checkbox, Icon, Table } from 'semantic-ui-react'
 import users from '../../../Data/users'
 import wishes from '../../../Data/wishes'
 
+
+const usersAndWishes = users.map(user => {
+    return {
+        id: user.id,
+        name: user.name,
+        wish: wishes.filter(wish => wish.id === user.idWish),
+        date: user.date,
+        email: user.email
+    }
+});
+
+
+console.log(usersAndWishes);
+
 class UsersView extends Component {
 
 
@@ -24,11 +38,11 @@ render() {
     </Table.Header>
 
         <Table.Body>
-            {users.map(user =>
+            {usersAndWishes.map(user =>
 
                 <Table.Row key={user.id}>
                         <Table.Cell>{user.name}</Table.Cell>
-                        <Table.Cell>dfdf</Table.Cell>
+                        <Table.Cell>{user.wish[0].wish}</Table.Cell>
                         <Table.Cell>{user.email}</Table.Cell>
                         <Table.Cell>{user.date}</Table.Cell>
                         <Table.Cell collapsing>
