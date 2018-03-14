@@ -1,8 +1,12 @@
 import React, { Component } from 'react'
-import { Form, TextArea, Button, Select, Header, Modal } from 'semantic-ui-react'
+import { Form, TextArea, Button, Header, Modal } from 'semantic-ui-react'
+import wishes from '../../../Data/wishes';
+import '../../../style/AddWish.css'
+
 
 class AddWish extends Component {
     render() {
+        const wishesIds = Object.keys(wishes);
         return (
             <React.Fragment>
                 <Modal trigger={<Button>Dodaj nowe życzenia</Button>}>
@@ -11,8 +15,10 @@ class AddWish extends Component {
                             <Header>Dodawanie życzeń</Header>
                             <Form>
                               <TextArea placeholder='Wpisz treść życzeń' />
-                                 <Form.Field>
-                                     <Select placeholder='Wybierz kategorię życzeń' options="test" />
+                                 <Form.Field control='select'>
+                                     {wishesIds.map(id =>
+                                         <option value='1'>{ wishes[id].category }</option>
+                                     )}
                                  </Form.Field>
                             </Form>
                         </Modal.Description>
