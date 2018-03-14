@@ -1,0 +1,12 @@
+.ui.table td {
+    text-align: center;
+}
+
+.ui.table thead th {
+    text-align: center;
+}
+
+.ui.table {
+    width: 70%;
+    margin: 100px 150px;
+}
