@@ -1,1 +1,1 @@
-export { default } from './WishesView'
+export { default } from './WishesView/TableRowWish'

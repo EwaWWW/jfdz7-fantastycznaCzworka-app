@@ -4,7 +4,7 @@ import { Route} from 'react-router-dom'
 
 import UsersView from '../../Views/UsersView'
 import SearchView from '../../Views/SearchView'
-import WishesView from '../../Views/WishesView'
+import TableRowWish from '../../Views/WishesView/TableRowWish'
 
 import {Menu, Icon, Segment, Sidebar} from 'semantic-ui-react'
 
@@ -47,7 +47,7 @@ class MenuBar extends Component {
                         <Segment basic>
                             <Route exact path="/" component={SearchView}/>
                             <Route path="/users" component={UsersView} />
-                            <Route path="/wishes" component={WishesView} />
+                            <Route path="/wishes" component={TableRowWish} />
 
 
 

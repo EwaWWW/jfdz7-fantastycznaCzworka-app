@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Table } from 'semantic-ui-react'
 
 import SearchFilter from "./SearchFilter"
-import WishesView from "../../Views/WishesView/WishesView"
+import TableRowWish from "../../Views/WishesView/TableRowWish"
 import wishes from "../../../Data/wishes"
 import AddWish from '../WishesView/AddWish'
 
@@ -40,7 +40,7 @@ render() {
                     </Table.Header>
                     <Table.Body>
                 {wishes.map(wish =>
-                    <WishesView
+                    <TableRowWish
                         id={wish.id}
                         wish={wish.wish}
                         category={wish.category}/>

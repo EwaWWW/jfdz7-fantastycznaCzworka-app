@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import '../../../style/WishesView.css'
 import { Table, Icon } from 'semantic-ui-react'
 
-class WishesView extends Component {
+class TableRowWish extends Component {
     render() {
         const { category, wish, id } = this.props;
         return (
@@ -17,4 +17,4 @@ class WishesView extends Component {
     }
 }
 
-export default WishesView
+export default TableRowWish
