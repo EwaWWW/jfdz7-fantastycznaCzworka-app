@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { Button } from 'semantic-ui-react'
-
-import wishes from '../../../Data/wishes';
+import categories from '../../../Data/wishesCategories'
 
 class SearchFilter extends Component {
 
@@ -12,17 +11,16 @@ class SearchFilter extends Component {
         console.log(category)
 
     };
-
     render() {
 
         return (
-            wishes.map(wish => {
+            categories.map(categories => {
                     return (
                     <Button
                             color='red'
-                            data-category={wish.category}
+                            data-category={categories.category}
                             onClick={this.onButtonToggle}>
-                            {wish.category}
+                            {categories.category}
                     </Button>
                 )
         }))
