@@ -4,7 +4,7 @@ import { Route} from 'react-router-dom'
 
 import PersonsView from '../../Views/PersonsView'
 import SearchView from '../../Views/SearchView'
-import WishesView from '../../Views/WishesView'
+import TableRowWish from '../../Views/WishesView/TableRowWish'
 
 import {Menu, Icon, Segment, Sidebar} from 'semantic-ui-react'
 
