@@ -47,7 +47,7 @@ class MenuBar extends Component {
                         <Segment basic>
                             <Route exact path="/" component={SearchView}/>
                             <Route path="/users" component={PersonsView} />
-                            <Route path="/wishes" component={WishesView} />
+                            <Route path="/wishes" component={TableRowWish} />
 
 
 
