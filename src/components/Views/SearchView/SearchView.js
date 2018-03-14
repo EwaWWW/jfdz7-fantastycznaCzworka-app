@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Table } from 'semantic-ui-react'
 
 import SearchFilter from "./SearchFilter"
 import WishesView from "../../Views/WishesView/WishesView"
@@ -29,13 +30,23 @@ render() {
             <React.Fragment>
                 <SearchFilter
                     filterToggle={this.updateCategory}/>
+                <Table celled class="ui inverted grey table">
+                    <Table.Header>
+                        <Table.Row>
+                            <Table.HeaderCell><b>Kategoria</b></Table.HeaderCell>
+                            <Table.HeaderCell><b>Życzenie</b></Table.HeaderCell>
+                            <Table.HeaderCell><b>Dodaj do ulubionych</b></Table.HeaderCell>
+                        </Table.Row>
+                    </Table.Header>
+                    <Table.Body>
                 {wishes.map(wish =>
                     <WishesView
                         id={wish.id}
                         wish={wish.wish}
                         category={wish.category}/>
-
                 )}
+                    </Table.Body>
+                </Table>
                 <AddWish/>
             </React.Fragment>
         )
