@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
 import { Route} from 'react-router-dom'
 
-import UsersView from '../../Views/PersonsView'
+import PersonsView from '../../Views/PersonsView'
 import SearchView from '../../Views/SearchView'
 import WishesView from '../../Views/WishesView'
 
@@ -46,7 +46,7 @@ class MenuBar extends Component {
                     <Sidebar.Pusher>
                         <Segment basic>
                             <Route exact path="/" component={SearchView}/>
-                            <Route path="/users" component={UsersView} />
+                            <Route path="/users" component={PersonsView} />
                             <Route path="/wishes" component={WishesView} />
 
 

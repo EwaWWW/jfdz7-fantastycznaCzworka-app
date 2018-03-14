@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import { Button, Checkbox, Icon, Table } from 'semantic-ui-react'
+import { Checkbox, Table } from 'semantic-ui-react'
 
 import AddPerson from './AddPerson'
 
@@ -60,9 +60,7 @@ render() {
             <Table.Row>
 
                 <Table.HeaderCell colSpan='5'>
-                    <Button floated='right' icon labelPosition='left' primary size='small'>
-                        <Icon name='user' /> Dodaj użytkownika
-                    </Button>
+                    <AddPerson/>
                 </Table.HeaderCell>
             </Table.Row>
         </Table.Footer>
