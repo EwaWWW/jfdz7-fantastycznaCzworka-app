@@ -1,7 +1,9 @@
 import React, {Component} from 'react'
 import { Button, Checkbox, Icon, Table } from 'semantic-ui-react'
 
-import users from '../../../Data/users'
+import AddPerson from './AddPerson'
+
+import users from '../../../Data/persons'
 import wishes from '../../../Data/wishes'
 
 
@@ -18,7 +20,7 @@ const usersAndWishes = users.map(user => {
 
 console.log(usersAndWishes);
 
-class UsersView extends Component {
+class PersonsView extends Component {
 
 
 
@@ -29,7 +31,7 @@ render() {
     <Table celled>
         <Table.Header>
         <Table.Row>
-            <Table.HeaderCell>Nazwa użytkownika</Table.HeaderCell>
+            <Table.HeaderCell>Imię i nazwisko</Table.HeaderCell>
             <Table.HeaderCell>Życzenia</Table.HeaderCell>
             <Table.HeaderCell>Adres email</Table.HeaderCell>
             <Table.HeaderCell>Data urodzin</Table.HeaderCell>
@@ -72,4 +74,4 @@ render() {
 }
 }
 
-export default UsersView
+export default PersonsView

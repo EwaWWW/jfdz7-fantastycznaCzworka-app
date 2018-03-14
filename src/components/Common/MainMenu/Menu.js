@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
 import { Route} from 'react-router-dom'
 
-import UsersView from '../../Views/UsersView'
+import UsersView from '../../Views/PersonsView'
 import SearchView from '../../Views/SearchView'
 import WishesView from '../../Views/WishesView'
 
