@@ -14,9 +14,13 @@ class AddPerson extends Component {
                             <label>Imię i nazwisko</label>
                             <input placeholder='Imię i nazwisko' />
                         </Form.Field>
-                    <Form.Field  type='email'>
+                    <Form.Field>
                         <label>Email</label>
-                        <input placeholder="Email"/>
+                        <input type='email' placeholder="Email"/>
+                    </Form.Field>
+                    <Form.Field>
+                        <label>data</label>
+                        <input type="date" name="departed"/>
                     </Form.Field>
                     <Button type='submit'>Dodaj</Button>
                         </Form>
