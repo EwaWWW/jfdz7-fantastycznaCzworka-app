@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Table } from 'semantic-ui-react'
+import { Table, Button } from 'semantic-ui-react'
 
 import SearchFilter from "./SearchFilter"
 import TableRowWish from "../../Views/WishesView/TableRowWish"
@@ -47,7 +47,10 @@ render() {
                 )}
                     </Table.Body>
                 </Table>
-                <AddWish/>
+                <Button color='red' onClick={() =>
+                    this.refs.addWish.openModal()
+                    }>Dodaj życzenie</Button>
+                <AddWish ref="addWish"/>
             </React.Fragment>
         )
     }
