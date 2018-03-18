@@ -36,8 +36,8 @@ render() {
                     <Table.Header>
                         <Table.Row>
                             <Table.HeaderCell><b>Kategoria</b></Table.HeaderCell>
-                            <Table.HeaderCell><b>Życzenie</b></Table.HeaderCell>
-                            <Table.HeaderCell><b>Dodaj do ulubionych</b></Table.HeaderCell>
+                            <Table.HeaderCell width={10}><b>Życzenie</b></Table.HeaderCell>
+                            <Table.HeaderCell width={1}><b>Dodaj do ulubionych</b></Table.HeaderCell>
                         </Table.Row>
                     </Table.Header>
                     <Table.Body>
