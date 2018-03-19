@@ -11,6 +11,6 @@ export default [
     {id: 10, name: "Marian", idWish: 9, date: "12-08-18", email: "adres@o2.pl"},
     {id: 11, name: "Ela", idWish: 3, date: "12-04-18", email: "adres@o2.pl"},
     {id: 12, name: "Agnieszka", idWish: 5, date: "12-04-18", email: "adres@o2.pl"},
-
+    {id: 13, name: "Agata", idWish: '', date: "12-04-18", email: "adres@o2.pl"}
 
 ];

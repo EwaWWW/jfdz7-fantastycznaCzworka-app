@@ -9,7 +9,7 @@ class AddPerson extends Component {
     }
     render() {
         return (
-            <Modal dimmer='blurring' trigger={<Button floated='right' icon labelPosition='left' primary size='small'><Icon name='user' /> Dodaj użytkownika</Button>}>
+            <Modal dimmer='blurring' trigger={<Button floated='right' icon labelPosition='left' primary size='small'><Icon name='user' /> Dodaj osobę</Button>}>
                 <Modal.Header>Dodaj osobę</Modal.Header>
                 <Modal.Content>
                         <Form>
