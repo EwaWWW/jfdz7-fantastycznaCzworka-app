@@ -39,14 +39,14 @@ class MenuBar extends Component {
                         <Menu.Item name='add-wish'>
                             Dodaj życzenie
                         </Menu.Item>
-                        <Menu.Item name='user-list'>
-                            <Link to="/users">Lista osób</Link>
+                        <Menu.Item name='persons-list'>
+                            <Link to="/persons">Lista osób</Link>
                         </Menu.Item>
                     </Sidebar>
                     <Sidebar.Pusher>
                         <Segment basic>
                             <Route exact path="/" component={SearchView}/>
-                            <Route path="/users" component={PersonsView} />
+                            <Route path="/persons" component={PersonsView} />
                             <Route path="/wishes" component={TableRowWish} />
 
 
