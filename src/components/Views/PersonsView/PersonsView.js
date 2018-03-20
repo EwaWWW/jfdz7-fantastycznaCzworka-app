@@ -6,16 +6,20 @@ import wishes from '../../../Data/wishes'
 
 
 const usersAndWishes = persons.map(person => {
+
     return {
         id: person.id,
         name: person.name,
-        wish: wishes.filter(wish => wish.id === person.idWish),
         date: person.date,
-        email: person.email
+        email: person.email,
+        wish:  person.idWish === '' ? '' : wishes.filter(wish => wish.id === person.idWish)
+
     }
+
+
 });
 
-
+console.log(usersAndWishes);
 class PersonsView extends Component {
 state =  {
  persons: usersAndWishes
@@ -24,7 +28,9 @@ state =  {
 
 render() {
     return (
-<PersonsList persons={this.state.persons}/>
+<PersonsList persons={this.state.persons}
+
+/>
     )
 
 }

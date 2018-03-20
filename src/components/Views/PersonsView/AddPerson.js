@@ -4,9 +4,7 @@ import { Form, Button,  Modal, Icon } from 'semantic-ui-react'
 
 
 class AddPerson extends Component {
-    state = {
 
-    }
     render() {
         return (
             <Modal dimmer='blurring' trigger={<Button floated='right' icon labelPosition='left' primary size='small'><Icon name='user' /> Dodaj osobę</Button>}>
