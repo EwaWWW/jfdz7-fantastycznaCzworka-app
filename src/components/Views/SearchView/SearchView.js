@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Table, Button } from 'semantic-ui-react'
+import { Table, Grid, Button } from 'semantic-ui-react'
 
 import SearchFilter from "./SearchFilter"
 import TableRowWish from "../../Views/WishesView/TableRowWish"
@@ -28,14 +28,16 @@ render() {
         this.state.allWishes;
         return (
             <React.Fragment>
-                <SearchFilter
-                    filterToggle={this.updateCategory}/>
+                <Grid centered padded>
+                      <SearchFilter
+                             filterToggle={this.updateCategory}/>
+                </Grid>
                 <Table celled class="ui inverted grey table">
                     <Table.Header>
                         <Table.Row>
                             <Table.HeaderCell><b>Kategoria</b></Table.HeaderCell>
-                            <Table.HeaderCell><b>Życzenie</b></Table.HeaderCell>
-                            <Table.HeaderCell><b>Dodaj do ulubionych</b></Table.HeaderCell>
+                            <Table.HeaderCell width={10}><b>Życzenie</b></Table.HeaderCell>
+                            <Table.HeaderCell width={1}><b>Dodaj do ulubionych</b></Table.HeaderCell>
                         </Table.Row>
                     </Table.Header>
                     <Table.Body>
