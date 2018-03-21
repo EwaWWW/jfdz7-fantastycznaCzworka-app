@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import { Form, Button, Header } from 'semantic-ui-react'
 import {connect} from 'react-redux'
 import {signIn} from '../../state/auth'
 
@@ -34,12 +35,16 @@ class SignInForm extends Component {
 
     render() {
         return (
-            <form onSubmit={this.handleSubmit}>
-                <h1>Zaloguj się:</h1>
-                <div>email: {this.renderInput('email')}</div>
-                <div>hasło: {this.renderInput('password', 'password')}</div>
-                <button>Zaloguj</button>
-            </form>
+            <Form onSubmit={this.handleSubmit}>
+                <Header textAlign='center'>Zaloguj się:</Header>
+                <Form.Field>
+                    <label>E-mail</label>
+                    {this.renderInput('email')}</Form.Field>
+                <Form.Field>
+                    <label>Hasło:</label>
+                    {this.renderInput('password', 'password')}</Form.Field>
+                <Button>Zaloguj</Button>
+            </Form>
         )
     }
 }

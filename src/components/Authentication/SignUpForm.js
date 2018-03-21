@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {signUp} from '../../state/auth'
 
+import { Form, Button, Header } from 'semantic-ui-react'
 
 class SignUpForm extends Component {
 
@@ -37,12 +38,16 @@ class SignUpForm extends Component {
 
     render() {
         return (
-            <form onSubmit={this.handleSubmit}>
-                <h1>Zarejestruj się:</h1>
-                <div>email: {this.renderInput('email')}</div>
-                <div>hasło: {this.renderInput('password', 'password')}</div>
-                <button>Zarejestruj się</button>
-            </form>
+            <Form onSubmit={this.handleSubmit}>
+                <Header textAlign='center'>Zarejestruj się:</Header>
+                <Form.Field>
+                    <label>E-mail</label>
+                    {this.renderInput('email')}</Form.Field>
+                <Form.Field>
+                    <label>Hasło</label>
+                    {this.renderInput('password', 'password')}</Form.Field>
+                <Button>Zarejestruj się</Button>
+            </Form>
         )
     }
 }
