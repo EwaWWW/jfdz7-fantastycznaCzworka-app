@@ -1,10 +1,8 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-import {signUp} from '../../state/auth'
+import {signIn} from '../../state/auth'
 
-
-class SignUpForm extends Component {
-
+class SignInForm extends Component {
     state = {
         email: '',
         password: ''
@@ -14,8 +12,8 @@ class SignUpForm extends Component {
         event.preventDefault()
 
         this.props
-            .signUp(this.state.email, this.state.password)
-            .catch(error => this.setState({error}))
+              .signIn(this.state.email, this.state.password)
+              .catch(error => this.setState({ error }))
     }
 
     handleChange = ({target: {name, value}}) => {
@@ -38,13 +36,13 @@ class SignUpForm extends Component {
     render() {
         return (
             <form onSubmit={this.handleSubmit}>
-                <h1>Zarejestruj się:</h1>
+                <h1>Zaloguj się:</h1>
                 <div>email: {this.renderInput('email')}</div>
                 <div>hasło: {this.renderInput('password', 'password')}</div>
-                <button>Zarejestruj się</button>
+                <button>Zaloguj</button>
             </form>
         )
     }
 }
 
-export default connect(null, {signUp})(SignUpForm)
+export default connect(null, {signIn})(SignInForm)

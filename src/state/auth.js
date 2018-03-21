@@ -13,7 +13,9 @@ export const signIn = (email, password) => dispatch => {
 }
 
 export const signUp = (email, password) => dispatch => {
-    return firebase.auth().createUserWithEmailAndPassword(email, password)
+    return firebase
+        .auth()
+        .createUserWithEmailAndPassword(email, password)
 }
 
     const initialState = {
