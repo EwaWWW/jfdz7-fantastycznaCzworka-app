@@ -7,6 +7,8 @@ import SearchView from '../../Views/SearchView'
 import TableRowWish from '../../Views/WishesView/TableRowWish'
 import AddWish from '../../Views/WishesView/AddWish'
 import {Menu, Icon, Segment, Sidebar} from 'semantic-ui-react'
+import Auth from '../../Authentication/Auth'
+import SignOutButton from '../../Authentication/SignOutButton'
 
 
 
@@ -37,8 +39,7 @@ class MenuBar extends Component {
                     <Icon name='list layout'/>
                 </Menu.Item>
                 <Menu.Item position='right'>
-                    <Icon name='user'/>
-                    Zaloguj się
+                    <SignOutButton/>
                 </Menu.Item>
             </Menu>
                 <Sidebar.Pushable as={Segment}>
@@ -60,10 +61,11 @@ class MenuBar extends Component {
                     </Sidebar>
                     <Sidebar.Pusher>
                         <Segment basic>
+                         <Auth>
                             <Route exact path="/" component={SearchView}/>
                             <Route path="/persons" component={PersonsView} />
                             <Route path="/wishes" component={TableRowWish} />
-
+                         </Auth>
 
 
                         </Segment>

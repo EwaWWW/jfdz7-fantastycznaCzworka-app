@@ -25,7 +25,7 @@ render() {
 
     const wishes = this.state.category ? this.state.allWishes.filter(wish => wish.category === this.state.category)
          :
-        this.state.allWishes;
+        this.state.allWishes.filter(wish => wish.category !== this.state.category);
         return (
             <React.Fragment>
                 <Grid centered padded>
@@ -41,7 +41,7 @@ render() {
                         </Table.Row>
                     </Table.Header>
                     <Table.Body>
-                {wishes.map(wish =>
+                        {wishes.map(wish =>
                     <TableRowWish
                         id={wish.id}
                         wish={wish.wish}
