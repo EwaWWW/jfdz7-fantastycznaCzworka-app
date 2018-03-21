@@ -14,9 +14,6 @@ class AddWish extends Component {
             openModal: false,
             currentId: null
         };
-        this.handleText= this.handleText.bind(this);
-        this.handleSubmit= this.handleSubmit.bind(this);
-        this.handleCategory= this.handleCategory.bind(this);
     };
 
     handleText = (event) => {
@@ -43,7 +40,7 @@ class AddWish extends Component {
     render() {
         return (
             <React.Fragment>
-                <Modal open={this.state.openModal} onClose={this.closeModal} trigger={<Button onClick={this.openModal}>Dodaj nowe życzenia</Button>}>
+                <Modal open={this.state.openModal} onClose={this.closeModal}>
                     <Modal.Content>
                         <Modal.Description>
                             <Header>Dodawanie życzeń</Header>

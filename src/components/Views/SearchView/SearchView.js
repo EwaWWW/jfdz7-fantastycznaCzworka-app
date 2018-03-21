@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Table, Grid } from 'semantic-ui-react'
+import { Table, Grid, Button } from 'semantic-ui-react'
 
 import SearchFilter from "./SearchFilter"
 import TableRowWish from "../../Views/WishesView/TableRowWish"
@@ -36,8 +36,8 @@ render() {
                     <Table.Header>
                         <Table.Row>
                             <Table.HeaderCell><b>Kategoria</b></Table.HeaderCell>
-                            <Table.HeaderCell><b>Życzenie</b></Table.HeaderCell>
-                            <Table.HeaderCell><b>Dodaj do ulubionych</b></Table.HeaderCell>
+                            <Table.HeaderCell width={10}><b>Życzenie</b></Table.HeaderCell>
+                            <Table.HeaderCell width={1}><b>Dodaj do ulubionych</b></Table.HeaderCell>
                         </Table.Row>
                     </Table.Header>
                     <Table.Body>
@@ -49,7 +49,10 @@ render() {
                 )}
                     </Table.Body>
                 </Table>
-                <AddWish/>
+                <Button color='red' onClick={() =>
+                    this.refs.addWish.openModal()
+                    }>Dodaj życzenie</Button>
+                <AddWish ref="addWish"/>
             </React.Fragment>
         )
     }
