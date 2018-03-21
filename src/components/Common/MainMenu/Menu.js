@@ -5,13 +5,26 @@ import { Route} from 'react-router-dom'
 import PersonsView from '../../Views/PersonsView'
 import SearchView from '../../Views/SearchView'
 import TableRowWish from '../../Views/WishesView/TableRowWish'
-
+import AddWish from '../../Views/WishesView/AddWish'
 import {Menu, Icon, Segment, Sidebar} from 'semantic-ui-react'
 
 
 
 class MenuBar extends Component {
-    state = { visible: false };
+    state = {
+        visible: false,
+        modalAddWishVisible: false
+    };
+
+    modalAddWishVisibility = () => this.setState({ modalAddWishVisible: !this.state.modalAddWishVisible });
+
+    openAddWish = () => {
+    console.log("OpenAddWish")
+        return(
+            <AddWish visibility={true} />
+        )
+    }
+
     toggleVisibility = () => this.setState({ visible: !this.state.visible });
 
     render() {
@@ -37,7 +50,9 @@ class MenuBar extends Component {
                             <Link to="/">Wyszukiwarka życzeń</Link>
                         </Menu.Item>
                         <Menu.Item name='add-wish'>
-                            Dodaj życzenie
+                            <Link onClick={() =>
+                                this.refs.addWish.openModal()
+                            } to="/">Dodaj życzenie</Link>
                         </Menu.Item>
                         <Menu.Item name='persons-list'>
                             <Link to="/persons">Lista osób</Link>
@@ -54,10 +69,9 @@ class MenuBar extends Component {
                         </Segment>
                     </Sidebar.Pusher>
                 </Sidebar.Pushable>
+                   <AddWish ref="addWish"/>
                </React.Fragment>
         )
-
-
     }
 }
 export default MenuBar

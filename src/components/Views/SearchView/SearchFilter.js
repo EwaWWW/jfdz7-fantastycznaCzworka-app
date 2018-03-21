@@ -14,16 +14,18 @@ class SearchFilter extends Component {
     render() {
 
         return (
+
             categories.map(categories => {
-                    return (
+                return (
                     <Button
-                            color='red'
-                            data-category={categories.category}
-                            onClick={this.onButtonToggle}>
-                            {categories.category}
+                        color='red'
+                        data-category={categories.category}
+                        onClick={this.onButtonToggle}>
+                        {categories.category}
                     </Button>
                 )
-        }))
+            })
+        )
     }
 }
 
