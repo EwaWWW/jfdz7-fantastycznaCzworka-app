@@ -12,8 +12,8 @@ export const signIn = (email, password) => dispatch => {
     firebase.auth().signInWithEmailAndPassword(email, password)
 }
 
-export const singUp = (email, password) => dispatch => {
-    firebase.auth().createUserWithEmailAndPassword(email, password)
+export const signUp = (email, password) => dispatch => {
+    return firebase.auth().createUserWithEmailAndPassword(email, password)
 }
 
     const initialState = {

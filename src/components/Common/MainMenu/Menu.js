@@ -7,7 +7,7 @@ import SearchView from '../../Views/SearchView'
 import TableRowWish from '../../Views/WishesView/TableRowWish'
 import AddWish from '../../Views/WishesView/AddWish'
 import {Menu, Icon, Segment, Sidebar} from 'semantic-ui-react'
-import Auth from './Authentication/Auth'
+import Auth from '../../Authentication/Auth'
 
 
 
