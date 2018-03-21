@@ -18,6 +18,10 @@ export const signUp = (email, password) => dispatch => {
         .createUserWithEmailAndPassword(email, password)
 }
 
+export const signOut = () => dispatch => {
+      firebase.auth().signOut()
+    }
+
     const initialState = {
       user: null
 }

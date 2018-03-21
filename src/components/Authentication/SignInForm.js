@@ -13,7 +13,6 @@ class SignInForm extends Component {
 
         this.props
               .signIn(this.state.email, this.state.password)
-              .catch(error => this.setState({ error }))
     }
 
     handleChange = ({target: {name, value}}) => {
