@@ -7,6 +7,8 @@ import SearchView from '../../Views/SearchView'
 import TableRowWish from '../../Views/WishesView/TableRowWish'
 import AddWish from '../../Views/WishesView/AddWish'
 import {Menu, Icon, Segment, Sidebar} from 'semantic-ui-react'
+import Auth from './Authentication/Auth'
+
 
 
 
@@ -60,10 +62,11 @@ class MenuBar extends Component {
                     </Sidebar>
                     <Sidebar.Pusher>
                         <Segment basic>
+                         <Auth>
                             <Route exact path="/" component={SearchView}/>
                             <Route path="/users" component={UsersView} />
                             <Route path="/wishes" component={TableRowWish} />
-
+                         </Auth>
 
 
                         </Segment>
