@@ -48,7 +48,7 @@ class SignUpForm extends Component {
                     {this.renderInput('password', 'password')}</Form.Field>
                 <Button>Zarejestruj się</Button>
                 <Button color='facebook'>
-                    <Icon name='facebook' /> Facebook
+                    <Icon name='facebook' /> Zarejestruj przez Facebook
                 </Button>
             </Form>
         )
