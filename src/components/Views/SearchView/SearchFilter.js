@@ -23,7 +23,8 @@ class SearchFilter extends Component {
                             {categories.category}
                     </Button>
                 )
-        }))
+        })
+        )
     }
 }
 

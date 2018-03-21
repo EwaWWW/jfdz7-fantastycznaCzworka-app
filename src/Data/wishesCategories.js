@@ -6,4 +6,5 @@ export default [
     {id: 4, category: "mother"},
     {id: 5, category: "funny"},
     {id: 6, category: "friends"},
+    {id: 7, category: "show all"},
 ];
