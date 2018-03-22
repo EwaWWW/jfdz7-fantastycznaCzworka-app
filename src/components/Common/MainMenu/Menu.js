@@ -51,7 +51,7 @@ class MenuBar extends Component {
                         </Menu.Item>
                         <Menu.Item name='add-wish'>
                             <Link onClick={() =>
-                                this.refs.addWish.openModal()
+                                // this.refs.addWish.openModal()
                             } to="/">Dodaj życzenie</Link>
                         </Menu.Item>
                         <Menu.Item name='user-list'>
