@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import { Checkbox, Table } from 'semantic-ui-react'
+import { connect } from 'react-redux'
 
 import AddPerson from './AddPerson'
 
@@ -8,7 +9,9 @@ import AddPerson from './AddPerson'
 class PersonsList extends Component {
 
     render() {
+
         const { persons} = this.props
+        console.log(persons);
         return (
             <React.Fragment>
                 <Table celled>
@@ -55,4 +58,9 @@ class PersonsList extends Component {
     }
 }
 
-export default PersonsList
+export default connect(
+    state => ({
+        persons: state.persons.data
+
+    })
+) (PersonsList)

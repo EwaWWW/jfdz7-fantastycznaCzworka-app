@@ -1,8 +1,7 @@
 import React, {Component} from 'react'
 
 import PersonsList from './PersonsList'
-import persons from '../../../Data/persons'
-import wishes from '../../../Data/wishes'
+
 
 
 
