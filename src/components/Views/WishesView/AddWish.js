@@ -5,6 +5,8 @@ import wishesCategories from '../../../Data/wishesCategories';
 import '../../../style/AddWish.css'
 import { connect } from 'react-redux'
 import {addWish} from "../../../actions/wishes";
+import {openCloseModalWish} from "../../../actions/modalAddWish";
+
 
 class AddWish extends Component {
     constructor(props) {
@@ -26,6 +28,7 @@ class AddWish extends Component {
         // wishes.push({wish: this.state.wishText, id: this.state.currentId, category: this.state.wishCategory});
         let wish = {wish: this.state.wishText, id: this.state.currentId, category: this.state.wishCategory}
         this.props.addWish(wish)
+        this.props.openCloseModalWish(false)
         this.setState({openModal: false});
     };
 
@@ -44,7 +47,7 @@ class AddWish extends Component {
     render() {
         return (
             <React.Fragment>
-                <Modal open={this.state.openModal} onClose={this.closeModal}>
+                <Modal open={this.props.modalAddWish} onClose={this.closeModal}>
                     <Modal.Content>
                         <Modal.Description>
                             <Header>Dodawanie życzeń</Header>
@@ -66,5 +69,8 @@ class AddWish extends Component {
 }
 
 // export default AddWish
-const mapDispatchToProps = dispatch => ({ addWish: (wish) => dispatch(addWish(wish)) })
-export default connect (null, mapDispatchToProps) (AddWish)
+
+const mapStateToProps = (store) => { console.log("storeAddWIsh", store)
+    return { modalAddWish: store.modalAddWish.modalAddWish, wishes: store.wishes }}
+const mapDispatchToProps = dispatch => ({ addWish: (wish) => dispatch(addWish(wish)) , openCloseModalWish: (data) => dispatch (openCloseModalWish(data)) })
+export default connect (mapStateToProps, mapDispatchToProps) (AddWish)

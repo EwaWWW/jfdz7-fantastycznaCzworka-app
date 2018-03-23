@@ -7,8 +7,8 @@ import SearchView from '../../Views/SearchView'
 import TableRowWish from '../../Views/WishesView/TableRowWish'
 import AddWish from '../../Views/WishesView/AddWish'
 import {Menu, Icon, Segment, Sidebar} from 'semantic-ui-react'
-
-
+import { openCloseModalWish } from '../../../actions/modalAddWish'
+import { connect } from 'react-redux'
 
 class MenuBar extends Component {
     state = {
@@ -51,6 +51,7 @@ class MenuBar extends Component {
                         </Menu.Item>
                         <Menu.Item name='add-wish'>
                             <Link onClick={() =>
+                                this.props.openCloseModalWish(true)
                                 // this.refs.addWish.openModal()
                             } to="/">Dodaj życzenie</Link>
                         </Menu.Item>
@@ -69,9 +70,13 @@ class MenuBar extends Component {
                         </Segment>
                     </Sidebar.Pusher>
                 </Sidebar.Pushable>
-                   <AddWish ref="addWish"/>
+                   {/*<AddWish ref="addWish"/>*/}
                </React.Fragment>
         )
     }
 }
-export default MenuBar
+
+
+const mapDispatchToProps = dispatch => ({ openCloseModalWish: (data) => dispatch(openCloseModalWish(data)) })
+export default connect(null, mapDispatchToProps)(MenuBar)
+

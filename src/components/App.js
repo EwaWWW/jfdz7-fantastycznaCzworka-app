@@ -3,7 +3,7 @@ import { Grid } from 'semantic-ui-react'
 
 
 import MenuBar from './Common/MainMenu';
-
+import AddWish from './Views/WishesView/AddWish'
 
 
 
@@ -18,7 +18,7 @@ class App extends Component {
             <MenuBar/>
               </Grid.Column>
           </Grid>
-
+            <AddWish />
 
       </React.Fragment>
     )

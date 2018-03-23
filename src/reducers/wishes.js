@@ -6,8 +6,8 @@ const initialState = { wishes: wishesFromFile }
 export default function(state = initialState, action) {
     switch (action.type) {
         case ADD_WISH:
-            console.log("AddWish", state, action)
-            return { ...state, wishesAdd: action.data }
+            console.log("AddWish", state, action, state.wishes)
+            return { ...state, wishes: [...state.wishes, action.data]}
         default:
             console.log("default", state)
             return state
