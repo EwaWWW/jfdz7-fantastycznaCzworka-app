@@ -33,63 +33,66 @@ class SearchView extends Component {
 
 render() {
 
-    const wishes = this.state.category ? this.state.allWishes.filter(wish =>
-        wish.category === this.state.category)
-         :
-        this.state.allWishes;
+    const wishes = this.state.category ? this.state.allWishes
+            .filter(wish => wish.category === this.state.category) : this.state.allWishes
 
+            // .filter(wish => ( this.state.searchValue === ''? true : [wish.wish, wish.category]
+            //     .map(
+            //         wish => wish.toLowerCase()).some(searchValue => searchValue.includes(this.state.searchValue.toLowerCase()))))
         return (
             <React.Fragment>
-                <Search onChange={this.handleSearch}>Wyszukaj życzenie</Search>
-                <Grid centered padded>
-                      <SearchFilter
-                             filterToggle={this.updateCategory}/>
-                </Grid>
-                <Table celled class="ui inverted grey table">
-                    <Table.Header>
-                        <Table.Row>
-                            <Table.HeaderCell><b>Kategoria</b></Table.HeaderCell>
-                            <Table.HeaderCell width={10}><b>Życzenie</b></Table.HeaderCell>
-                            <Table.HeaderCell width={1}><b>Dodaj do ulubionych</b></Table.HeaderCell>
-                        </Table.Row>
-                    </Table.Header>
-                    <Table.Body>{
-                                wishes.map(wish =>
-                            <TableRowWish
-                                id={wish.id}
-                                wish={wish.wish}
-                                category={wish.category}/>
-                        )}
-                                {/*{*/}
-                                {/*this.state.allWishes.filter(*/}
-                                    {/*wish => (*/}
-                                        {/*this.state.searchValue === '' ? true : [*/}
-                                                {/*wish.wish,*/}
-                                                {/*wish.category*/}
-                                            {/*].map(*/}
-                                                {/*wish => wish.toLowerCase()*/}
-                                            {/*).some(*/}
-                                                {/*searchValue => searchValue.includes(this.state.searchValue.toLowerCase())*/}
-                                        {/*)*/}
-                                    {/*)*/}
-                                {/*).map(*/}
-                                    {/*wish =>(*/}
-                                        {/*<TableRowWish*/}
-                                                {/*id={wish.id}*/}
-                                                {/*wish={wish.wish}*/}
-                                                {/*category={wish.category}/>*/}
-                                    {/*)*/}
-                                {/*)*/}
-                                {/*}*/}
+            <Search onChange={this.handleSearch}>Wyszukaj życzenie</Search>
+            <Grid centered padded>
+                <SearchFilter
+                    filterToggle={this.updateCategory}/>
+            </Grid>
+            <Table celled class="ui inverted grey table">
+                <Table.Header>
+                    <Table.Row>
+                        <Table.HeaderCell><b>Kategoria</b></Table.HeaderCell>
+                        <Table.HeaderCell width={10}><b>Życzenie</b></Table.HeaderCell>
+                        <Table.HeaderCell width={1}><b>Dodaj do ulubionych</b></Table.HeaderCell>
+                    </Table.Row>
+                </Table.Header>
+                <Table.Body>{
+                    wishes.map(wish =>
+                        <TableRowWish
+                            id={wish.id}
+                            wish={wish.wish}
+                            category={wish.category}/>
+                    )}
+                    {/*{*/}
+                    {/*this.state.allWishes.filter(*/}
+                    {/*wish => (*/}
+                    {/*this.state.searchValue === '' ? true : [*/}
+                    {/*wish.wish,*/}
+                    {/*wish.category*/}
+                    {/*].map(*/}
+                    {/*wish => wish.toLowerCase()*/}
+                    {/*).some(*/}
+                    {/*searchValue => searchValue.includes(this.state.searchValue.toLowerCase())*/}
+                    {/*)*/}
+                    {/*)*/}
+                    {/*)*/}
+                    {/*{*/}
+                    {/*.map(*/}
+                    {/*wish =>(*/}
+                    {/*<TableRowWish*/}
+                    {/*id={wish.id}*/}
+                    {/*wish={wish.wish}*/}
+                    {/*category={wish.category}/>*/}
+                    {/*)*/}
+                    {/*)*/}
+                    {/*}*/}
                         </Table.Body>
-                </Table>
-                <Button color='red' onClick={() =>
-                    this.refs.addWish.openModal()
-                    }>Dodaj życzenie</Button>
-                <AddWish ref="addWish"/>
-            </React.Fragment>
-        )
-    }
+                        </Table>
+                        <Button color='red' onClick={() =>
+                        this.refs.addWish.openModal()}>Dodaj życzenie</Button>
+                        <AddWish ref="addWish"/>
+                        </React.Fragment>
+                        )
+            }
 }
+
 
 export default SearchView
