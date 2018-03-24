@@ -40,17 +40,7 @@ render() {
 
         return (
             <React.Fragment>
-                <Search onChange={this.handleSearch} onselectionchange={this.state.allWishes.filter(
-                    wish => ( this.state.searchValue === '' ? true : [
-                            wish.wish,
-                            wishes.category
-                        ].map(
-                            wish => wish.toLowerCase()
-                        ).some(
-                            searchValue => searchValue.includes(this.state.searchValue.toLowerCase()
-                            ))
-                    )
-                )}>Wyszukaj życzenie</Search>
+                <Search onChange={this.handleSearch}>Wyszukaj życzenie</Search>
                 <Grid centered padded>
                       <SearchFilter
                              filterToggle={this.updateCategory}/>
@@ -70,20 +60,27 @@ render() {
                                 wish={wish.wish}
                                 category={wish.category}/>
                         )}
-                        /*{
-     // //  this.state.allWishes.filter(
-    // //           wish => (
-    // //         this.state.searchValue === '' ? true : [
-    // //             wish.wish,
-    // //             wishes.category
-    // //         ].map(
-    // //             wish => wish.toLowerCase()
-    // //         ).some(
-    // //             searchValue => searchValue.includes(this.state.searchValue.toLowerCase()
-    // //             ))
-    // //     )
-    // // )
-                    }*/
+                                {/*{*/}
+                                {/*this.state.allWishes.filter(*/}
+                                    {/*wish => (*/}
+                                        {/*this.state.searchValue === '' ? true : [*/}
+                                                {/*wish.wish,*/}
+                                                {/*wish.category*/}
+                                            {/*].map(*/}
+                                                {/*wish => wish.toLowerCase()*/}
+                                            {/*).some(*/}
+                                                {/*searchValue => searchValue.includes(this.state.searchValue.toLowerCase())*/}
+                                        {/*)*/}
+                                    {/*)*/}
+                                {/*).map(*/}
+                                    {/*wish =>(*/}
+                                        {/*<TableRowWish*/}
+                                                {/*id={wish.id}*/}
+                                                {/*wish={wish.wish}*/}
+                                                {/*category={wish.category}/>*/}
+                                    {/*)*/}
+                                {/*)*/}
+                                {/*}*/}
                         </Table.Body>
                 </Table>
                 <Button color='red' onClick={() =>
