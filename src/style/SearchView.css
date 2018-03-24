@@ -1,0 +1,12 @@
+.search-input{
+
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    border: 1px solid rgba(34,36,38,.15);
+    margin:0 0 20px;
+    outline: none;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 12pt;
+
+}
