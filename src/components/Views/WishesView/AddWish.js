@@ -3,7 +3,8 @@ import { Form, TextArea, Button, Header, Modal } from 'semantic-ui-react'
 import wishes from '../../../Data/wishes';
 import wishesCategories from '../../../Data/wishesCategories';
 import '../../../style/AddWish.css'
-
+import { connect } from 'react-redux'
+import {addWish} from "../../../actions/wishes";
 
 class AddWish extends Component {
     constructor(props) {
@@ -12,7 +13,8 @@ class AddWish extends Component {
             wishText: "",
             wishCategory: wishesCategories.filter(category => category.id === 0)[0].category,
             openModal: false,
-            currentId: null
+            currentId: null,
+            completedWish: {wish: "", id: null, category: ""}
         };
     };
 
@@ -21,7 +23,9 @@ class AddWish extends Component {
     };
 
     handleSubmit = (event) => {
-        wishes.push({wish: this.state.wishText, id: this.state.currentId, category: this.state.wishCategory});
+        // wishes.push({wish: this.state.wishText, id: this.state.currentId, category: this.state.wishCategory});
+        let wish = {wish: this.state.wishText, id: this.state.currentId, category: this.state.wishCategory}
+        this.props.addWish(wish)
         this.setState({openModal: false});
     };
 
@@ -61,4 +65,6 @@ class AddWish extends Component {
     }
 }
 
-export default AddWish
+// export default AddWish
+const mapDispatchToProps = dispatch => ({ addWish: (wish) => dispatch(addWish(wish)) })
+export default connect (null, mapDispatchToProps) (AddWish)
