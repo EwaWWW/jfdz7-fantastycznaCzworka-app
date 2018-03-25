@@ -11,6 +11,8 @@ import Auth from '../../Authentication/Auth'
 import SignOutButton from '../../Authentication/SignOutButton'
 
 
+import { openCloseModalWish } from '../../../state/modalAddWish'
+import { connect } from 'react-redux'
 
 class MenuBar extends Component {
     state = {
@@ -51,7 +53,8 @@ class MenuBar extends Component {
                             <Link to="/">Wyszukiwarka życzeń</Link>
                         </Menu.Item>
                         <Menu.Item name='add-wish'>
-                            <Link onClick={() =>{}
+                            <Link onClick={() =>
+                                this.props.openCloseModalWish(true)
                                 // this.refs.addWish.openModal()
                             } to="/">Dodaj życzenie</Link>
                         </Menu.Item>
@@ -71,9 +74,13 @@ class MenuBar extends Component {
                         </Segment>
                     </Sidebar.Pusher>
                 </Sidebar.Pushable>
-                   <AddWish ref="addWish"/>
+                   {/*<AddWish ref="addWish"/>*/}
                </React.Fragment>
         )
     }
 }
-export default MenuBar
+
+
+const mapDispatchToProps = dispatch => ({ openCloseModalWish: (data) => dispatch(openCloseModalWish(data)) })
+export default connect(null, mapDispatchToProps)(MenuBar)
+
