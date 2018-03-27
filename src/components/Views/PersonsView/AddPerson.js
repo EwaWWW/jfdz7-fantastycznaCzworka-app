@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import { Form, Button,  Modal, Icon } from 'semantic-ui-react'
+import { Form, Button } from 'semantic-ui-react'
 import { addPerson} from "../../../state/persons";
 import { connect } from 'react-redux'
 
@@ -24,28 +24,28 @@ class AddPerson extends Component {
 
 
     }
-    renderInput(fieldName) {
+    renderInput(fieldName, placeHolder,type) {
         return (
             <input
                 name={fieldName}
                 value={this.state[fieldName]}
                 onChange={this.handleChange}
+                placeholder={placeHolder}
+                type={type}
             />
         )
     }
     render() {
         return (
-            <Modal dimmer='blurring' trigger={<Button floated='right' icon labelPosition='left' primary size='small'><Icon name='user' /> Dodaj osobę</Button>}>
-                <Modal.Header>Dodaj osobę</Modal.Header>
-                <Modal.Content>
-                        <Form onSubmit={this.handleSubmit}>
+            <Form onSubmit={this.handleSubmit}>
+                <h2>Dodaj osobę</h2>
                             <Form.Field>
                             <label>Imię i nazwisko</label>
-                            <input placeholder='Imię i nazwisko' name='personName' onChange={this.handleChange} value={this.state['personNAme']} />
+                                {this.renderInput('personName', 'Imię i nazwisko', 'text')}
                         </Form.Field>
                     <Form.Field>
                         <label>Email</label>
-                        <input type='email' placeholder="Email" name = 'personEmail' onChange={this.handleChange} value={this.state['personEmail']}/>
+                        {this.renderInput('personEmail', 'Email', 'email')}
                     </Form.Field>
                     <Form.Field>
                         <label>data</label>
@@ -53,8 +53,6 @@ class AddPerson extends Component {
                     </Form.Field>
                     <Button type='submit'>Dodaj</Button>
                         </Form>
-                </Modal.Content>
-            </Modal>
         )
     }
 }

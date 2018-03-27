@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Route} from 'react-router-dom'
 
 import PersonsView from '../../Views/PersonsView'
+import addPerson from '../../Views/PersonsView/AddPerson'
 import SearchView from '../../Views/SearchView'
 import TableRowWish from '../../Views/WishesView/TableRowWish'
 import AddWish from '../../Views/WishesView/AddWish'
