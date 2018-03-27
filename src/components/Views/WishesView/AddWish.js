@@ -3,6 +3,10 @@ import { Form, TextArea, Button, Header, Modal } from 'semantic-ui-react'
 import wishes from '../../../Data/wishes';
 import wishesCategories from '../../../Data/wishesCategories';
 import '../../../style/AddWish.css'
+import { connect } from 'react-redux'
+import {openCloseModalWish} from "../../../state/modalAddWish";
+import {addWish} from "../../../state/wishes";
+
 
 
 class AddWish extends Component {
@@ -12,7 +16,8 @@ class AddWish extends Component {
             wishText: "",
             wishCategory: wishesCategories.filter(category => category.id === 0)[0].category,
             openModal: false,
-            currentId: null
+            currentId: null,
+            completedWish: {wish: "", id: null, category: ""}
         };
     };
 
@@ -21,7 +26,10 @@ class AddWish extends Component {
     };
 
     handleSubmit = (event) => {
-        wishes.push({wish: this.state.wishText, id: this.state.currentId, category: this.state.wishCategory});
+        // wishes.push({wish: this.state.wishText, id: this.state.currentId, category: this.state.wishCategory});
+        let wish = {wish: this.state.wishText, id: this.state.currentId, category: this.state.wishCategory}
+        this.props.addWish(wish)
+        this.props.openCloseModalWish(false)
         this.setState({openModal: false});
     };
 
@@ -40,7 +48,7 @@ class AddWish extends Component {
     render() {
         return (
             <React.Fragment>
-                <Modal open={this.state.openModal} onClose={this.closeModal}>
+                <Modal open={this.props.modalAddWish} onClose={this.closeModal}>
                     <Modal.Content>
                         <Modal.Description>
                             <Header>Dodawanie życzeń</Header>
@@ -61,4 +69,9 @@ class AddWish extends Component {
     }
 }
 
-export default AddWish
+// export default AddWish
+
+const mapStateToProps = (store) => { console.log("storeAddWIsh", store)
+    return { modalAddWish: store.modalAddWish.modalAddWish, wishes: store.wishes }}
+const mapDispatchToProps = dispatch => ({ addWish: (wish) => dispatch(addWish(wish)) , openCloseModalWish: (data) => dispatch (openCloseModalWish(data)) })
+export default connect (mapStateToProps, mapDispatchToProps) (AddWish)

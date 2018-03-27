@@ -4,12 +4,17 @@ import firebase from 'firebase'
 import './setupFirebase'
 import auth, {setUser} from './state/auth'
 import persons, { disableSync, enableSync } from './state/persons'
+import wishes from './state/wishes'
+import modalAddWish from './state/modalAddWish'
+
 
 
 
 const reducer = combineReducers({
     auth,
-    persons
+    persons,
+    wishes,
+    modalAddWish
 })
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
