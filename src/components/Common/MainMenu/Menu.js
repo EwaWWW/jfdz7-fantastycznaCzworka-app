@@ -6,7 +6,6 @@ import { connect } from 'react-redux'
 import {Menu, Icon, Segment, Sidebar} from 'semantic-ui-react'
 
 import PersonsView from '../../Views/PersonsView'
-import addPerson from '../../Views/PersonsView/AddPerson'
 import SearchView from '../../Views/SearchView'
 import TableRowWish from '../../Views/WishesView/TableRowWish'
 import AddWish from '../../Views/WishesView/AddWish'

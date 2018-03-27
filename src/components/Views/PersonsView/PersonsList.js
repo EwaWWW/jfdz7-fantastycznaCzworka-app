@@ -1,7 +1,8 @@
 import React, {Component} from 'react'
-import { Checkbox, Table, Button } from 'semantic-ui-react'
+import { Checkbox, Table } from 'semantic-ui-react'
 import { connect } from 'react-redux'
-import { Link } from 'react-router-dom';
+import AddPerson from '../../Views/PersonsView/AddPerson'
+
 
 
 
@@ -47,11 +48,7 @@ class PersonsList extends Component {
                         <Table.Row>
 
                             <Table.HeaderCell colSpan='5'>
-                                <Link to="/addPerson">
-                                    <Button>
-                                        Dodaj osobę
-                                    </Button>
-                                </Link>
+                                <AddPerson/>
                             </Table.HeaderCell>
                         </Table.Row>
                     </Table.Footer>

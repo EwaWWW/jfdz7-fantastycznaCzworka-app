@@ -16,9 +16,9 @@ let personsRef
 let callback
 
 export const enableSync = () => dispatch => {
-    // const userUid = firebase.auth().currentUser.uid
+    const userUid = firebase.auth().currentUser.uid
 
-    personsRef = firebase.database().ref('/persons/')
+    personsRef = firebase.database().ref('/app-user/' + userUid + '/persons/')
     callback = snapshot => {
         const value = snapshot.val()
         const persons = Object.entries(value || {}).map(([id, values]) => ({
