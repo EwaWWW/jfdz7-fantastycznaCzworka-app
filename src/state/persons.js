@@ -5,7 +5,7 @@ import persons from "../Data/persons";
 // Action types
 const SET_PERSONS = 'persons/SET_PERSONS'
 
-const ADD = 'persons/ADD'
+// const ADD = 'persons/ADD'
 
 const setPersons = persons => ({
     type: SET_PERSONS,
@@ -55,6 +55,9 @@ export const addPerson = (
         email: personEmail
     })
 }
+export const removePerson = personId => dispatch => {
+    personsRef.child(personId).remove()
+}
 
 
 
@@ -76,7 +79,7 @@ const usersAndWishes = persons.map(person => {
 // Initial state
 
 const initialState = {
-    data: usersAndWishes
+    data: []
 }
 
 // Reducer
@@ -88,16 +91,16 @@ export default (state = initialState, action = {}) => {
                 data: action.persons
             }
 
-        case ADD:
-            return {
-                ...state,
-                data: state.data.concat({
-                    id: Date.now().toString(32),
-                    name: action.personName,
-                    date: action.personDoB,
-                    email: action.personEmail
-                })
-            }
+        // case ADD:
+        //     return {
+        //         ...state,
+        //         data: state.data.concat({
+        //             id: Date.now().toString(32),
+        //             name: action.personName,
+        //             date: action.personDoB,
+        //             email: action.personEmail
+        //         })
+        //     }
 
 
 
