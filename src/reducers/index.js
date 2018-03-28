@@ -1,7 +1,9 @@
 import { combineReducers } from 'redux'
-import  wishes  from './wishes'
+import  wishes  from '../state/wishes'
+import  modalAddWish  from '../state/modalAddWish'
 
-const reducers = { wishes: wishes }
+
+const reducers = { wishes: wishes, modalAddWish: modalAddWish }
 const combined = combineReducers (reducers)
 export default  combined
 
