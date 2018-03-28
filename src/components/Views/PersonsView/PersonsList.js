@@ -2,10 +2,7 @@ import React, {Component} from 'react'
 import { Checkbox, Table, Button, Icon } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 import AddPerson from '../../Views/PersonsView/AddPerson'
-import removePerson from '../../../state/persons'
-
-
-
+import {removePerson} from '../../../state/persons'
 
 
 class PersonsList extends Component {
@@ -18,7 +15,7 @@ class PersonsList extends Component {
     render() {
 
         const { persons} = this.props
-        console.log(persons);
+
         return (
             <React.Fragment>
                 <Table celled>
@@ -70,10 +67,10 @@ class PersonsList extends Component {
     }
 }
 
-export default connect(
-    state => ({
+export default connect(state =>
+        ({
         persons: state.persons.data
 
     }),
     {removePerson}
-) (PersonsList)
+)(PersonsList)
