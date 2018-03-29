@@ -81,7 +81,7 @@ export const removePerson = personId => dispatch =>
 // Initial state
 
 const initialState = {
-    data: null
+    data: []
 }
 
 // Reducer
