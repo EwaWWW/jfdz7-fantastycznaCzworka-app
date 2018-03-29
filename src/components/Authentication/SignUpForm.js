@@ -49,7 +49,7 @@ class SignUpForm extends Component {
                 <Button>Zarejestruj się</Button>
 
                 <Button color='facebook'
-                onClick={signUpWithFacebook}>
+                onClick={signUpWithFacebook()}>
                     <Icon name='facebook' /> Zarejestruj przez Facebook
                 </Button>
             </Form>
