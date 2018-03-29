@@ -9,7 +9,9 @@ const SET_USER = 'auth/SET_USER'
 })
 
 export const signIn = (email, password) => dispatch => {
-    firebase.auth().signInWithEmailAndPassword(email, password)
+ return firebase
+        .auth()
+        .signInWithEmailAndPassword(email, password)
 }
 
 export const signUp = (email, password) => dispatch => {
@@ -23,8 +25,9 @@ const provider = new firebase.auth.FacebookAuthProvider();
 
 export const signUpWithFacebook = () => dispatch => {
     return (
-        firebase.auth().signInWithPopup(provider)
-
+        firebase
+            .auth()
+            .signInWithPopup(provider)
             .then((result) => {
                 const token = result.credential.accessToken;
                 const user = result.user;

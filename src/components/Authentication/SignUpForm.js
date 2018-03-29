@@ -2,21 +2,23 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {signUp, signUpWithFacebook} from '../../state/auth'
 
-import { Form, Button, Header, Icon, Divider } from 'semantic-ui-react'
+import { Form, Button, Header, Icon, Divider, Label } from 'semantic-ui-react'
 
 class SignUpForm extends Component {
 
     state = {
         email: '',
-        password: ''
+        password: '',
+        error: null
     }
 
     handleSubmit = event => {
         event.preventDefault()
 
+
         this.props
             .signUp(this.state.email, this.state.password)
-            .catch(error => this.setState({error}))
+            .catch(error => this.setState({ error }))
     }
 
     handleChange = ({target: {name, value}}) => {
@@ -38,16 +40,19 @@ class SignUpForm extends Component {
 
     render() {
         return (
+
             <Form onSubmit={this.handleSubmit}>
                 <Header textAlign='center'>Zarejestruj się:</Header>
-                <Form.Field>
+                {this.state.error &&
+                <Label size='large' basic color='red'>{this.state.error.message}</Label>}
+                <Form.Field required>
                     <label>E-mail</label>
                     {this.renderInput('email')}</Form.Field>
-                <Form.Field>
+                <Form.Field required>
                     <label>Hasło</label>
                     {this.renderInput('password', 'password')}</Form.Field>
                 <Button fluid>Zarejestruj się</Button>
-                <Divider horizontal>Lub</Divider>
+                <Divider horizontal section>Lub</Divider>
                 <Button fluid color='facebook'
                 onClick={signUpWithFacebook()}>
                     <Icon name='facebook' /> Zarejestruj przez Facebook
