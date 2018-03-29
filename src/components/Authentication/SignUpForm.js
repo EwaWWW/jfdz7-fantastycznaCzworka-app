@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-import {signUp} from '../../state/auth'
+import {signUp, signUpWithFacebook} from '../../state/auth'
 
 import { Form, Button, Header, Icon } from 'semantic-ui-react'
 
@@ -47,7 +47,9 @@ class SignUpForm extends Component {
                     <label>Hasło</label>
                     {this.renderInput('password', 'password')}</Form.Field>
                 <Button>Zarejestruj się</Button>
-                <Button color='facebook'>
+
+                <Button color='facebook'
+                onClick={signUpWithFacebook}>
                     <Icon name='facebook' /> Zarejestruj przez Facebook
                 </Button>
             </Form>

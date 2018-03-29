@@ -18,6 +18,26 @@ export const signUp = (email, password) => dispatch => {
         .createUserWithEmailAndPassword(email, password)
 }
 
+
+const provider = new firebase.auth.FacebookAuthProvider();
+
+export const signUpWithFacebook = () => dispatch => {
+    return (
+        firebase.auth().signInWithPopup(provider)
+
+            .then(function(result) {
+                const token = result.credential.accessToken;
+                const user = result.user;
+
+                console.log(token)
+                console.log(user)
+            }).catch(function(error) {
+            console.log(error.code)
+            console.log(error.message)
+        })
+    )
+}
+
 export const signOut = () => dispatch => {
       firebase.auth().signOut()
     }
