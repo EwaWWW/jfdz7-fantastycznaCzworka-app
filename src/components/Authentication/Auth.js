@@ -11,7 +11,7 @@ class Auth extends Component {
             <Grid centered padded>
                 <Grid.Column  width={8}>
                     <SignInForm/>
-                    <Divider>Lub</Divider>
+                         <Divider horizontal>Lub</Divider>
                     <SignUpForm/>
                 </Grid.Column>
             </Grid>

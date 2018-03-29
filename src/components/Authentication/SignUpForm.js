@@ -47,7 +47,7 @@ class SignUpForm extends Component {
                     <label>Hasło</label>
                     {this.renderInput('password', 'password')}</Form.Field>
                 <Button fluid>Zarejestruj się</Button>
-                <Divider>Lub</Divider>
+                <Divider horizontal>Lub</Divider>
                 <Button fluid color='facebook'
                 onClick={signUpWithFacebook()}>
                     <Icon name='facebook' /> Zarejestruj przez Facebook
