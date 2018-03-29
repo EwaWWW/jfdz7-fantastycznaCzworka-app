@@ -44,9 +44,10 @@ class SignUpForm extends Component {
 
             <Form onSubmit={this.handleSubmit}>
                 <Header textAlign='center'>Zarejestruj się:</Header>
+                {this.state.error &&
                 <Label size='large' basic color='red'>
-                    {translations(this.state.error.code) ||
-                    'wystapił nieznany błąd'}</Label>
+                    {translations(this.state.error.code)}
+                </Label>}
                 <Form.Field required>
                     <label>E-mail</label>
                     {this.renderInput('email')}</Form.Field>

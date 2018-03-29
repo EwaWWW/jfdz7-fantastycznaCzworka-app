@@ -12,7 +12,7 @@ export const translations = (code) => ({
     'auth/user-not-found': 'Nie znaleziono użytkownika',
     'auth/weak-password': 'Hasło jest za słabe',
     'auth/wrong-password': 'Nieprawidłowe hasło',
-    'auth/invalid-email': 'Zły adres e-mail'
+    'auth/invalid-email': 'Nieprawidłowy adres e-mail'
 })[code]
 
 
