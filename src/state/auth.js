@@ -8,6 +8,14 @@ const SET_USER = 'auth/SET_USER'
   user
 })
 
+export const translations = (code) => ({
+    'auth/user-not-found': 'Nie znaleziono użytkownika',
+    'auth/weak-password': 'Hasło jest za słabe',
+    'auth/wrong-password': 'Nieprawidłowe hasło',
+    'auth/invalid-email': 'Zły adres e-mail'
+})[code]
+
+
 export const signIn = (email, password) => dispatch => {
  return firebase
         .auth()

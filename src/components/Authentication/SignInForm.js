@@ -1,13 +1,12 @@
 import React, {Component} from 'react'
 import { Form, Button, Header, Label } from 'semantic-ui-react'
 import {connect} from 'react-redux'
-import {signIn} from '../../state/auth'
+import {signIn, translations} from '../../state/auth'
 
 class SignInForm extends Component {
     state = {
         email: '',
         password: '',
-        error: null
     }
 
     handleSubmit = event => {
@@ -39,8 +38,9 @@ class SignInForm extends Component {
         return (
             <Form onSubmit={this.handleSubmit}>
                 <Header textAlign='center'>Zaloguj się:</Header>
-                {this.state.error &&
-                <Label size='large' basic color='red'>{this.state.error.message}</Label>}
+                {/*<Label size='large' basic color='red'>*/}
+                    {/*{translations(this.state.error.code) ||*/}
+                    {/*'wystapił nieznany błąd'}</Label>*/}
                 <Form.Field required>
                     <label>E-mail</label>
                     {this.renderInput('email')}</Form.Field>

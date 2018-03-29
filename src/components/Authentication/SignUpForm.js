@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-import {signUp, signUpWithFacebook} from '../../state/auth'
+import {signUp, signUpWithFacebook, translations} from '../../state/auth'
 
 import { Form, Button, Header, Icon, Divider, Label } from 'semantic-ui-react'
 
@@ -9,7 +9,6 @@ class SignUpForm extends Component {
     state = {
         email: '',
         password: '',
-        error: null
     }
 
     handleSubmit = event => {
@@ -38,13 +37,16 @@ class SignUpForm extends Component {
         )
     }
 
+
+
     render() {
         return (
 
             <Form onSubmit={this.handleSubmit}>
                 <Header textAlign='center'>Zarejestruj się:</Header>
-                {this.state.error &&
-                <Label size='large' basic color='red'>{this.state.error.message}</Label>}
+                <Label size='large' basic color='red'>
+                    {translations(this.state.error.code) ||
+                    'wystapił nieznany błąd'}</Label>
                 <Form.Field required>
                     <label>E-mail</label>
                     {this.renderInput('email')}</Form.Field>
