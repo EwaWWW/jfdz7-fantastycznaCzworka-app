@@ -43,7 +43,7 @@ class SignInForm extends Component {
                 <Form.Field>
                     <label>Hasło:</label>
                     {this.renderInput('password', 'password')}</Form.Field>
-                <Button>Zaloguj</Button>
+                <Button fluid>Zaloguj</Button>
             </Form>
         )
     }
