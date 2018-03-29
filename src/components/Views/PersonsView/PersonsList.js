@@ -1,17 +1,21 @@
 import React, {Component} from 'react'
-import { Checkbox, Table } from 'semantic-ui-react'
+import { Checkbox, Table, Button, Icon } from 'semantic-ui-react'
 import { connect } from 'react-redux'
-
-import AddPerson from './AddPerson'
-
+import AddPerson from '../../Views/PersonsView/AddPerson'
+import {removePerson} from '../../../state/persons'
 
 
 class PersonsList extends Component {
+    handleRemoveClick = event => {
+        const personId = event.target.dataset.personId
+        this.props.removePerson(personId)
+    }
+
 
     render() {
 
         const { persons} = this.props
-        console.log(persons);
+
         return (
             <React.Fragment>
                 <Table celled>
@@ -29,6 +33,11 @@ class PersonsList extends Component {
                         {persons.map(person =>
 
                             <Table.Row key={person.id}>
+                                <Table.Cell>
+                                    <Button icon  data-person-id={person.id}
+                                            onClick={this.handleRemoveClick}><Icon name="delete" />
+                                    </Button>
+                                </Table.Cell>
                                 <Table.Cell>{person.name}</Table.Cell>
 
                                 <Table.Cell>{person.wish && person.wish[0].wish }</Table.Cell>
@@ -58,9 +67,10 @@ class PersonsList extends Component {
     }
 }
 
-export default connect(
-    state => ({
+export default connect(state =>
+        ({
         persons: state.persons.data
 
-    })
-) (PersonsList)
+    }),
+    {removePerson}
+)(PersonsList)

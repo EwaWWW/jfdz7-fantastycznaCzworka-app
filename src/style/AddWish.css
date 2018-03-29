@@ -1,3 +1,47 @@
 .ui.dimmer {
     padding: 350px;
 }
+
+@media screen and (max-width: 576px) {
+    .ui.modal > .content {
+        padding: 34px;
+        width: 200px;
+        margin: -251px;
+    }
+}
+
+@media screen and (min-width: 576px) {
+    .ui.modal > .content {
+        width: 315px;
+        margin: -200px;
+    }
+}
+@media screen and (min-width: 768px) {
+    .ui.modal > .content {
+        width: 600px;
+    }
+    .ui.modal {
+        width: 52%;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .ui.modal > .content {
+        width: 750px;
+        margin: -100px;
+    }
+    .ui.modal {
+        width: 52%;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .ui.modal > .content {
+        width: 850px;
+        margin: -100px;
+    }
+    .ui.modal {
+        width: 70%;
+        margin: 100px;
+    }
+}

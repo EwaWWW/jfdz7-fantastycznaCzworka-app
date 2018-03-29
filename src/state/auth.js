@@ -26,6 +26,11 @@ export const signUp = (email, password) => dispatch => {
     return firebase
         .auth()
         .createUserWithEmailAndPassword(email, password)
+        .then(user => {
+            firebase
+                .database()
+                .ref('/users/' + user.uid)
+        })
 }
 
 

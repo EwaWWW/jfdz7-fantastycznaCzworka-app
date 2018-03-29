@@ -19,7 +19,13 @@ const reducer = combineReducers({
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 
-const store = createStore(reducer, composeEnhancers(applyMiddleware(thunk)))
+const store = createStore(
+    reducer,
+    composeEnhancers(
+        applyMiddleware(thunk)
+)
+)
+
 
 firebase.auth().onAuthStateChanged(user => {
     if (user !== null) {
