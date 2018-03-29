@@ -1,5 +1,6 @@
 import firebase from 'firebase'
 
+
 const config = {
     apiKey: "AIzaSyB2AWzs9kwxcceSWkASP-GBWYZCN4_vp6s",
     authDomain: "fc-generator-zyczen.firebaseapp.com",

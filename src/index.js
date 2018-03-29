@@ -12,6 +12,7 @@ import App from './components/App';
 import registerServiceWorker from './registerServiceWorker';
 import 'semantic-ui-css/semantic.min.css';
 
+
 ReactDOM.render(
     <Provider store={store}>
     <Router>

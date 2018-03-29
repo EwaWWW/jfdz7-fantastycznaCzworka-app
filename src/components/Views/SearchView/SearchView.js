@@ -1,16 +1,21 @@
 import React, { Component } from 'react'
-import { Table, Grid, Button } from 'semantic-ui-react'
+import { connect } from 'react-redux'
+
+import { Table, Grid, Button} from 'semantic-ui-react'
 
 import SearchFilter from "./SearchFilter"
 import TableRowWish from "../../Views/WishesView/TableRowWish"
 import wishes from "../../../Data/wishes"
 import AddWish from '../WishesView/AddWish'
+import {openCloseModalWish} from "../../../state/modalAddWish";
+
 
 class SearchView extends Component {
 
     state = {
         allWishes: wishes,
-        category: ''
+        category: '',
+        searchValue: ''
     };
 
 
@@ -19,13 +24,20 @@ class SearchView extends Component {
             category: category
         },() => {console.log(this.state)}
         )
-    }
+    };
+
+    handleSearch = (e) => {
+        this.setState({
+            searchValue: (e).target.value
+        })
+    };
+
 
 render() {
 
-    const wishes = this.state.category ? this.state.allWishes.filter(wish => wish.category === this.state.category)
+    const wishes = this.state.category ? this.props.wishes.wishes.filter(wish => wish.category === this.state.category)
          :
-        this.state.allWishes.filter(wish => wish.category !== this.state.category);
+        this.props.wishes.wishes;
         return (
             <React.Fragment>
                 <Grid centered padded>
@@ -42,15 +54,15 @@ render() {
                     </Table.Header>
                     <Table.Body>
                         {wishes.map(wish =>
-                    <TableRowWish
-                        id={wish.id}
-                        wish={wish.wish}
-                        category={wish.category}/>
-                )}
-                    </Table.Body>
+                            <TableRowWish
+                                id={wish.id}
+                                wish={wish.wish}
+                                category={wish.category}/>
+                        )}
+                </Table.Body>
                 </Table>
                 <Button color='red' onClick={() =>
-                    this.refs.addWish.openModal()
+                    this.props.openCloseModalWish(true)
                     }>Dodaj życzenie</Button>
                 <AddWish ref="addWish"/>
             </React.Fragment>
@@ -58,4 +70,12 @@ render() {
     }
 }
 
-export default SearchView
+
+const mapStateToProps = (store) => {
+    return {
+        wishes: store.wishes
+    }}
+const mapDispatchToProps = dispatch => ({
+    openCloseModalWish: (data) => dispatch(openCloseModalWish(data))
+})
+export default connect (mapStateToProps, mapDispatchToProps) (SearchView)
