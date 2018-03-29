@@ -1,11 +1,11 @@
 import firebase from 'firebase'
-import wishes from "../Data/wishes";
-import persons from "../Data/persons";
+// import wishes from "../Data/wishes";
+// import persons from "../Data/persons";
 
 // Action types
 const SET_PERSONS = 'persons/SET_PERSONS'
 
-const ADD = 'persons/ADD'
+// const ADD = 'persons/ADD'
 
 const setPersons = persons => ({
     type: SET_PERSONS,
@@ -14,11 +14,11 @@ const setPersons = persons => ({
 
 let personsRef
 let callback
-
+// https://console.firebase.google.com/project/fc-generator-zyczen/database/fc-generator-zyczen/data/app-user/qjwjlJjfReOlIJooEuZxE9LJ3dq2/persons/-L8iC6nrKr7SWE5Hqe7y
 export const enableSync = () => dispatch => {
-    // const userUid = firebase.auth().currentUser.uid
+    const userUid = firebase.auth().currentUser.uid
 
-    personsRef = firebase.database().ref('/persons/')
+    personsRef = firebase.database().ref('/app-user/' + userUid + '/persons')
     callback = snapshot => {
         const value = snapshot.val()
         const persons = Object.entries(value || {}).map(([id, values]) => ({
@@ -55,28 +55,33 @@ export const addPerson = (
         email: personEmail
     })
 }
+export const removePerson = personId => dispatch =>
+{console.log(personsRef.child(personId));
+    personsRef.child(personId).remove()
+
+}
 
 
 
 
 
-const usersAndWishes = persons.map(person => {
+// const usersAndWishes = persons.map(person => {
+//
+//     return {
+//         id: person.id,
+//         name: person.name,
+//         date: person.date,
+//         email: person.email,
+//         wish:  person.idWish === '' ? '' : wishes.filter(wish => wish.id === person.idWish)
+//
+//     }
 
-    return {
-        id: person.id,
-        name: person.name,
-        date: person.date,
-        email: person.email,
-        wish:  person.idWish === '' ? '' : wishes.filter(wish => wish.id === person.idWish)
 
-    }
-
-
-});
+// });
 // Initial state
 
 const initialState = {
-    data: usersAndWishes
+    data: []
 }
 
 // Reducer
@@ -88,16 +93,16 @@ export default (state = initialState, action = {}) => {
                 data: action.persons
             }
 
-        case ADD:
-            return {
-                ...state,
-                data: state.data.concat({
-                    id: Date.now().toString(32),
-                    name: action.personName,
-                    date: action.personDoB,
-                    email: action.personEmail
-                })
-            }
+        // case ADD:
+        //     return {
+        //         ...state,
+        //         data: state.data.concat({
+        //             id: Date.now().toString(32),
+        //             name: action.personName,
+        //             date: action.personDoB,
+        //             email: action.personEmail
+        //         })
+        //     }
 
 
 
