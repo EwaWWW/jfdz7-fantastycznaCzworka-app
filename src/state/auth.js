@@ -25,13 +25,13 @@ export const signUpWithFacebook = () => dispatch => {
     return (
         firebase.auth().signInWithPopup(provider)
 
-            .then(function(result) {
+            .then((result) => {
                 const token = result.credential.accessToken;
                 const user = result.user;
 
                 console.log(token)
                 console.log(user)
-            }).catch(function(error) {
+            }).catch((error) => {
             console.log(error.code)
             console.log(error.message)
         })
