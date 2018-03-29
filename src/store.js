@@ -15,9 +15,5 @@ const store = createStore(reducer, composeEnhancers(applyMiddleware(thunk)))
 
 firebase.auth().onAuthStateChanged(user => store.dispatch(setUser(user)))
 
-firebase
-    .auth()
-    .signInWithEmailAndPassword('bartosz.cytrowski+c1@gmail.com', 'test1234')
-    .then(() => setTimeout(() => firebase.auth().signOut(), 1000))
 
 export default store
