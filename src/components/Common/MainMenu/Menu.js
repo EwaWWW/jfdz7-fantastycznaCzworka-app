@@ -41,6 +41,7 @@ class MenuBar extends Component {
 
         return (
                <React.Fragment>
+                   <Auth>
             <Menu icon='labeled'>
                 <Menu.Item onClick={this.toggleVisibility}>
                     <Icon name='list layout'/>
@@ -75,15 +76,14 @@ class MenuBar extends Component {
 
                     <Sidebar.Pusher>
                         <Segment basic>
-                         <Auth>
                             <Route exact path="/" component={SearchView}/>
                             <Route path="/persons" component={PersonsView} />
                             <Route path="/wishes" component={TableRowWish} />
-                         </Auth>
                         </Segment>
                     </Sidebar.Pusher>
 
                 </Sidebar.Pushable>
+                   </Auth>
                </React.Fragment>
         )
     }
