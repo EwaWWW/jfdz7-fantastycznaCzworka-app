@@ -26,13 +26,15 @@ export default function(state = initialState, action) {
             console.log("AddWish", state, action, state.wishes)
             return { ...state, wishes: [...state.wishes, action.data]}
         case ADD_FAVORITE:
-            return {
+            console.log("AddFavorite", state, action, state.favorites)
 
-            }
+            return { ...state,wishes: state.wishes.map(wish => wish.id === action.data.id ?
+                {...wish, favorite: true }: wish),
+                favorites: [{ wish: action.data.wish, id: action.data.id, category: action.data.category },...state.favorites]}
         case REMOVE_FAVORITE:
-            return {
-
-            }
+            console.log("RemoveFavorite", state, action, state.favorites)
+            return { ...state,wishes: state.wishes.map(wish => wish.id === action.data.id ?
+                { ...wish, favorite: false }: wish), favorites: [...state.favorites.filter(d => d.id !== action.data.id)]}
         default:
             console.log("default", state)
             return state
