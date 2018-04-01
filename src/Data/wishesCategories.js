@@ -6,5 +6,5 @@ export default [
     {id: 4, category: "dla matki"},
     {id: 5, category: "śmieszne"},
     {id: 6, category: "dla przyjaciela"},
-    {id: 6, category: "ulubione"},
+    {id: 7, category: "ulubione"},
 ];
