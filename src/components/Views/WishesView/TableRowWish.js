@@ -36,7 +36,7 @@ class TableRowWish extends Component {
                         <Table.Cell>{ category }</Table.Cell>
                         <Table.Cell>{ wish }</Table.Cell>
                         <Table.Cell onClick={() => this.addToFav({ id: id, wish: wish, category: category })}>
-                            <Icon color={this.props.favorite ? "red": "blue"} name='star' />
+                            <Icon color={this.props.favorite ? "orange": "grey"} name='star' />
                         </Table.Cell>
                    </Table.Row>
             </React.Fragment>
