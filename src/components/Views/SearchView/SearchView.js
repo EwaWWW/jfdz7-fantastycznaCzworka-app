@@ -32,12 +32,33 @@ class SearchView extends Component {
         })
     };
 
+    generateRow = (wishes, wish) => {
+        console.log("wi", wishes, wish, this.props.wishes)
+        let test = wish.favorite!==undefined?wish.favorite:false
+
+        return (
+            <TableRowWish
+                id={wish.id}
+                wish={wish.wish}
+                category={wish.category}
+                favorite={test}
+            />
+        )
+    }
 
 render() {
 
-    const wishes = this.state.category ? this.props.wishes.wishes.filter(wish => wish.category === this.state.category)
-         :
-        this.props.wishes.wishes;
+    let wishes = [];
+    if (this.state.category === "ulubione") {
+        wishes = this.props.wishes.wishes.filter(wish => wish.favorite === true)
+    }
+    else if  (this.state.category) {
+        wishes = this.props.wishes.wishes.filter(wish => wish.category === this.state.category)
+    }
+    else {
+        wishes = this.props.wishes.wishes
+    }
+
         return (
             <React.Fragment>
                 <Grid centered padded>
@@ -54,10 +75,7 @@ render() {
                     </Table.Header>
                     <Table.Body>
                         {wishes.map(wish =>
-                            <TableRowWish
-                                id={wish.id}
-                                wish={wish.wish}
-                                category={wish.category}/>
+                            this.generateRow (wishes, wish)
                         )}
                 </Table.Body>
                 </Table>

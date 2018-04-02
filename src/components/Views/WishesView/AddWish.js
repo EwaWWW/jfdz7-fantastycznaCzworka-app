@@ -49,7 +49,7 @@ class AddWish extends Component {
                             <Form onSubmit={this.handleSubmit}>
                               <TextArea placeholder='Wpisz treść życzeń' onChange={this.handleText} />
                                  <Form.Field onChange={this.handleCategory} control='select'>
-                                     {wishesCategories.map(cat =>
+                                     {wishesCategories.map(cat => cat.id !== 7 &&
                                          <option value={cat.id}>{ cat.category }</option>
                                      )}
                                  </Form.Field>
