@@ -37,7 +37,7 @@ class AddPerson extends Component {
     }
     render() {
         return (
-                <Modal dimmer='blurring' trigger={<Button floated='right' icon labelPosition='left' primary size='small'><Icon name='user' /> Dodaj osobę</Button>}>
+                <Modal dimmer='blurring' trigger={<Button floated='right' icon  labelPosition='left' primary size='small'><Icon name='user' /> Dodaj osobę</Button>} closeIcon>
                     <Modal.Header>Dodaj osobę</Modal.Header>
                     <Modal.Content>
                         <Form onSubmit={this.handleSubmit}>
