@@ -2,12 +2,14 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
 import { Table, Grid, Button} from 'semantic-ui-react'
+import { Input } from 'semantic-ui-react'
 
 import SearchFilter from "./SearchFilter"
 import TableRowWish from "../../Views/WishesView/TableRowWish"
 import wishes from "../../../Data/wishes"
 import AddWish from '../WishesView/AddWish'
 import {openCloseModalWish} from "../../../state/modalAddWish";
+import '../../../style/SearchView.css'
 
 
 class SearchView extends Component {
@@ -46,22 +48,32 @@ class SearchView extends Component {
         )
     }
 
-render() {
-    let userWishes = this.props.wishes.wishes.filter(wish => wish.userId === undefined || wish.userId === this.props.auth.user.uid)
-    let wishes = [];
+    render() {
 
-    if (this.state.category === "ulubione") {
-        wishes = userWishes.filter(wish => wish.favorite === true)
-    }
-    else if  (this.state.category) {
-        wishes = userWishes.filter(wish => wish.category === this.state.category)
-    }
-    else {
-        wishes = userWishes
-    }
+        let wishes = [];
+        let userWishes = this.props.wishes.wishes.filter(wish => wish.userId === undefined || wish.userId === this.props.auth.user.uid)
+
+        if (this.state.category === "ulubione") {
+            wishes = userWishes.filter(wish => wish.favorite === true)
+                .filter(({wish}) => wish.toLowerCase().includes(this.state.searchValue.trim().toLowerCase()))
+        }
+        else if  (this.state.category) {
+            wishes = userWishes.filter(wish => wish.category === this.state.category)
+                .filter(({wish}) => wish.toLowerCase().includes(this.state.searchValue.trim().toLowerCase()))
+        }
+        else {
+            wishes = userWishes
+                .filter(({wish}) => wish.toLowerCase().includes(this.state.searchValue.trim().toLowerCase()))
+        }
 
         return (
             <React.Fragment>
+                <Input className="search-input"
+                       onChange={this.handleSearch}
+                       placeholder="Wyszukaj życzenia po treści ..."
+                       iconPosition="left"
+                       icon="search"/>
+
                 <Grid centered padded>
                       <SearchFilter
                              filterToggle={this.updateCategory}/>
