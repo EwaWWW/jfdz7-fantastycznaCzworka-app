@@ -1,19 +1,20 @@
 import React, {Component} from 'react'
-import { Form, Button, Header } from 'semantic-ui-react'
+import { Form, Button, Header, Label } from 'semantic-ui-react'
 import {connect} from 'react-redux'
-import {signIn} from '../../state/auth'
+import {signIn, translations} from '../../state/auth'
 
 class SignInForm extends Component {
     state = {
         email: '',
-        password: ''
+        password: '',
     }
 
     handleSubmit = event => {
         event.preventDefault()
 
         this.props
-              .signIn(this.state.email, this.state.password)
+            .signIn(this.state.email, this.state.password)
+            .catch(error => this.setState({ error }))
     }
 
     handleChange = ({target: {name, value}}) => {
@@ -37,13 +38,17 @@ class SignInForm extends Component {
         return (
             <Form onSubmit={this.handleSubmit}>
                 <Header textAlign='center'>Zaloguj się:</Header>
-                <Form.Field>
+                {this.state.error &&
+                <Label size='large' basic color='red'>
+                    {translations(this.state.error.code)}
+                </Label>}
+                <Form.Field required>
                     <label>E-mail</label>
                     {this.renderInput('email')}</Form.Field>
-                <Form.Field>
+                <Form.Field required>
                     <label>Hasło:</label>
                     {this.renderInput('password', 'password')}</Form.Field>
-                <Button>Zaloguj</Button>
+                <Button fluid>Zaloguj</Button>
             </Form>
         )
     }

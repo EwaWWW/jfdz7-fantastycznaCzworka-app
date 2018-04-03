@@ -6,7 +6,7 @@ const config = {
     authDomain: "fc-generator-zyczen.firebaseapp.com",
     databaseURL: "https://fc-generator-zyczen.firebaseio.com",
     projectId: "fc-generator-zyczen",
-    storageBucket: "fc-generator-zyczen.appspot.com",
+    storageBucket: "",
     messagingSenderId: "299749350476"
 };
 firebase.initializeApp(config);
