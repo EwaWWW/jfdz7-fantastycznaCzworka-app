@@ -56,7 +56,7 @@ export const addPerson = (
     })
 }
 export const removePerson = personId => dispatch =>
-{console.log(personsRef.child(personId));
+{
     personsRef.child(personId).remove()
 
 }

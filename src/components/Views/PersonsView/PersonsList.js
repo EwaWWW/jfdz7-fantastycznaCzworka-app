@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import { Checkbox, Table, Button, Icon } from 'semantic-ui-react'
+import { Checkbox, Table, Button, Icon,Popup } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 import AddPerson from '../../Views/PersonsView/AddPerson'
 import {removePerson} from '../../../state/persons'
@@ -36,9 +36,10 @@ class PersonsList extends Component {
 
                             <Table.Row key={person.id}>
                                 <Table.Cell>
-                                    <Button icon  data-person-id={person.id}
-                                            onClick={this.handleRemoveClick}><Icon name="delete" />
-                                    </Button>
+                                    <Popup
+                                        trigger={<Button icon data-person-id={person.id} onClick={this.handleRemoveClick}><Icon name="delete" /></Button>}
+                                        content='Usuń osobę'
+                                    />
                                 </Table.Cell>
                                 <Table.Cell>{person.name}</Table.Cell>
 
