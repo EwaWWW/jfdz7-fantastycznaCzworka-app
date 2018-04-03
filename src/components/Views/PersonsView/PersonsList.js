@@ -21,11 +21,13 @@ class PersonsList extends Component {
                 <Table celled>
                     <Table.Header>
                         <Table.Row>
+                            <Table.HeaderCell></Table.HeaderCell>
+
                             <Table.HeaderCell>Imię i nazwisko</Table.HeaderCell>
                             <Table.HeaderCell>Życzenia</Table.HeaderCell>
                             <Table.HeaderCell>Adres email</Table.HeaderCell>
                             <Table.HeaderCell>Data urodzin</Table.HeaderCell>
-                            <Table.HeaderCell><Checkbox label="Wyślij automatycznie"/></Table.HeaderCell>
+                            <Table.HeaderCell></Table.HeaderCell>
                         </Table.Row>
                     </Table.Header>
 

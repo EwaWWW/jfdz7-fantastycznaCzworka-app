@@ -4,11 +4,14 @@ import { addPerson} from "../../../state/persons";
 import { connect } from 'react-redux'
 
 
+
+
 class AddPerson extends Component {
     state = {
         personName:'',
         personDoB: '',
-        personEmail: ''
+        personEmail: '',
+        isOpenModal: false
     }
     handleChange = ({ target: { name, value } }) => {
         this.setState({
@@ -21,9 +24,18 @@ class AddPerson extends Component {
         const { personName, personDoB, personEmail } = this.state
 
         this.props.addPerson(personName, personDoB, personEmail)
+        this.setState({isOpenModal: false});
+
+
 
 
     }
+    closeModal = () => {
+        this.setState({isOpenModal: false})
+    }
+    openModal = () => {
+        this.setState({isOpenModal: true})
+    };
     renderInput(fieldName, placeHolder,type) {
         return (
             <input
@@ -37,7 +49,7 @@ class AddPerson extends Component {
     }
     render() {
         return (
-                <Modal dimmer='blurring' trigger={<Button floated='right' icon  labelPosition='left' primary size='small'><Icon name='user' /> Dodaj osobę</Button>} closeIcon>
+                <Modal onClose={this.closeModal} open={this.state.isOpenModal} dimmer='blurring' trigger={<Button onClick={this.openModal} floated='right' icon  labelPosition='left' primary size='small'><Icon name='user' /> Dodaj osobę</Button>} closeIcon>
                     <Modal.Header>Dodaj osobę</Modal.Header>
                     <Modal.Content>
                         <Form onSubmit={this.handleSubmit}>
@@ -63,5 +75,5 @@ class AddPerson extends Component {
     }
 }
 
-export default connect(
-    null, {addPerson})(AddPerson)
+export default connect(null,
+     {addPerson})(AddPerson)
