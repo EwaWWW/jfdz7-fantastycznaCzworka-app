@@ -67,7 +67,7 @@ class SearchView extends Component {
             <React.Fragment>
                 <Input className="search-input"
                        onChange={this.handleSearch}
-                       placeholder="Wyszukaj życzenie to treści ..."
+                       placeholder="Wyszukaj życzenia to treści ..."
                        iconPosition="left"
                        icon="search"/>
 
