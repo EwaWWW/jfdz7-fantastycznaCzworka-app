@@ -51,16 +51,19 @@ class SearchView extends Component {
     render() {
 
         let wishes = [];
+        let userWishes = this.props.wishes.wishes.filter(wish => wish.userId === undefined || wish.userId === this.props.auth.user.uid)
+
         if (this.state.category === "ulubione") {
-            wishes = this.props.wishes.wishes.filter(wish => wish.favorite === true)
+            wishes = userWishes.filter(wish => wish.favorite === true)
                 .filter(({wish}) => wish.toLowerCase().includes(this.state.searchValue.trim().toLowerCase()))
         }
         else if  (this.state.category) {
-            wishes = this.props.wishes.wishes.filter(wish => wish.category === this.state.category)
+            wishes = userWishes.filter(wish => wish.category === this.state.category)
                 .filter(({wish}) => wish.toLowerCase().includes(this.state.searchValue.trim().toLowerCase()))
         }
         else {
-            wishes = this.props.wishes.wishes.filter(({wish}) => wish.toLowerCase().includes(this.state.searchValue.trim().toLowerCase()))
+            wishes = userWishes
+                .filter(({wish}) => wish.toLowerCase().includes(this.state.searchValue.trim().toLowerCase()))
         }
 
         return (
@@ -101,7 +104,8 @@ class SearchView extends Component {
 
 const mapStateToProps = (store) => {
     return {
-        wishes: store.wishes
+        wishes: store.wishes,
+        auth: store.auth
     }}
 const mapDispatchToProps = dispatch => ({
     openCloseModalWish: (data) => dispatch(openCloseModalWish(data))
