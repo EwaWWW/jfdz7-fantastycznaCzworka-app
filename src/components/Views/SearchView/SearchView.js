@@ -1,3 +1,4 @@
+import _ from 'lodash'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
@@ -15,10 +16,32 @@ import '../../../style/SearchView.css'
 class SearchView extends Component {
 
     state = {
-        allWishes: wishes,
+        column: null,
+        data: wishes,
+        direction: null,
         category: '',
         searchValue: ''
     };
+
+    handleSort = clickedColumn => () => {
+        const { column, data, direction } = this.state;
+
+        if (column !== clickedColumn) {
+            this.setState({
+                column: clickedColumn,
+                data: _.sortBy(data, [clickedColumn]),
+                direction: 'ascending',
+            });
+
+            return
+        }
+
+        this.setState({
+            data: data.reverse(),
+            direction: direction === 'ascending' ? 'descending' : 'ascending',
+        })
+    };
+
 
     returnAllCategory = (e) => {
         this.setState ({
@@ -55,6 +78,9 @@ class SearchView extends Component {
 
     render() {
 
+        const { column, data, direction } = this.state;
+
+
         let wishes = [];
         if (this.state.category === "ulubione") {
             wishes = this.props.wishes.wishes.filter(wish => wish.favorite === true)
@@ -81,10 +107,10 @@ class SearchView extends Component {
                              filterToggle={this.updateCategory}/>
                       <Button color='red' onClick={this.returnAllCategory}>WSZYSTKIE KATEGORIE</Button>
                 </Grid>
-                <Table celled class="ui inverted grey table">
+                <Table celled class="ui inverted grey table" sortable fixed>
                     <Table.Header>
                         <Table.Row>
-                            <Table.HeaderCell><b>Kategoria</b></Table.HeaderCell>
+                            <Table.HeaderCell sorted={column === 'category' ? direction : null} onClick={this.handleSort('category')}><b>Kategoria</b></Table.HeaderCell>
                             <Table.HeaderCell width={10}><b>Życzenie</b></Table.HeaderCell>
                             <Table.HeaderCell width={1}><b>Dodaj do ulubionych</b></Table.HeaderCell>
                         </Table.Row>
@@ -93,6 +119,13 @@ class SearchView extends Component {
                         {wishes.map(wish =>
                             this.generateRow (wishes, wish)
                         )}
+                        {/*{_.map((data), ({category, Życzenia, Ulubione}) =>(*/}
+                            {/*<Table.Row key={Kategoria}>*/}
+                                {/*<Table.HeaderCell>{Kategoria}</Table.HeaderCell>*/}
+                                {/*<Table.HeaderCell>{Życzenia}</Table.HeaderCell>*/}
+                                {/*<Table.HeaderCell>{Ulubione}</Table.HeaderCell>*/}
+                            {/*</Table.Row>*/}
+                        {/*))}*/}
                 </Table.Body>
                 </Table>
                 <Button color='red' onClick={() =>
