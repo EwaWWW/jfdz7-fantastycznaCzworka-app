@@ -102,7 +102,7 @@ class SearchView extends Component {
                        iconPosition="left"
                        icon="search"/>
 
-                <Grid centered padded>
+                <Grid centered padded >
                       <SearchFilter
                              filterToggle={this.updateCategory}/>
                       <Button color='red' onClick={this.returnAllCategory}>WSZYSTKIE KATEGORIE</Button>
@@ -110,9 +110,9 @@ class SearchView extends Component {
                 <Table celled class="ui inverted grey table" sortable fixed>
                     <Table.Header>
                         <Table.Row>
-                            <Table.HeaderCell sorted={column === 'category' ? direction : null} onClick={this.handleSort('category')}><b>Kategoria</b></Table.HeaderCell>
-                            <Table.HeaderCell width={10}><b>Życzenie</b></Table.HeaderCell>
-                            <Table.HeaderCell width={1}><b>Dodaj do ulubionych</b></Table.HeaderCell>
+                            <Table.HeaderCell width={4} sorted={column === 'category' ? direction : null} onClick={this.handleSort('category')} sort><b>Kategoria</b></Table.HeaderCell>
+                            <Table.HeaderCell width={8}><b>Życzenie</b></Table.HeaderCell>
+                            <Table.HeaderCell width={3}><b>Dodaj do ulubionych</b></Table.HeaderCell>
                         </Table.Row>
                     </Table.Header>
                     <Table.Body>
