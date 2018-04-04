@@ -20,6 +20,11 @@ class SearchView extends Component {
         searchValue: ''
     };
 
+    returnAllCategory = (e) => {
+        this.setState ({
+            category: (e).category
+        })
+    };
 
     updateCategory = (category) => {
         this.setState({
@@ -46,7 +51,7 @@ class SearchView extends Component {
                 favorite={test}
             />
         )
-    }
+    };
 
     render() {
 
@@ -74,6 +79,7 @@ class SearchView extends Component {
                 <Grid centered padded>
                       <SearchFilter
                              filterToggle={this.updateCategory}/>
+                      <Button color='red' onClick={this.returnAllCategory}>WSZYSTKIE KATEGORIE</Button>
                 </Grid>
                 <Table celled class="ui inverted grey table">
                     <Table.Header>
@@ -102,8 +108,8 @@ class SearchView extends Component {
 const mapStateToProps = (store) => {
     return {
         wishes: store.wishes
-    }}
+    }};
 const mapDispatchToProps = dispatch => ({
     openCloseModalWish: (data) => dispatch(openCloseModalWish(data))
-})
+});
 export default connect (mapStateToProps, mapDispatchToProps) (SearchView)
