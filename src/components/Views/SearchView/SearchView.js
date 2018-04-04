@@ -7,7 +7,6 @@ import { Input } from 'semantic-ui-react'
 
 import SearchFilter from "./SearchFilter"
 import TableRowWish from "../../Views/WishesView/TableRowWish"
-import wishes from "../../../Data/wishes"
 import AddWish from '../WishesView/AddWish'
 import {openCloseModalWish} from "../../../state/modalAddWish";
 import '../../../style/SearchView.css'
@@ -17,19 +16,17 @@ class SearchView extends Component {
 
     state = {
         column: null,
-        data: wishes,
         direction: null,
         category: '',
         searchValue: ''
     };
 
     handleSort = clickedColumn => () => {
-        const { column, data, direction } = this.state;
+        const { column, direction } = this.state;
 
         if (column !== clickedColumn) {
             this.setState({
                 column: clickedColumn,
-                data: _.sortBy(data, [clickedColumn]),
                 direction: 'ascending',
             });
 
@@ -37,7 +34,6 @@ class SearchView extends Component {
         }
 
         this.setState({
-            data: data.reverse(),
             direction: direction === 'ascending' ? 'descending' : 'ascending',
         })
     };
@@ -78,8 +74,7 @@ class SearchView extends Component {
 
     render() {
 
-        const { column, data, direction } = this.state;
-
+        const { column, direction } = this.state;
 
         let wishes = [];
         if (this.state.category === "ulubione") {
@@ -92,6 +87,11 @@ class SearchView extends Component {
         }
         else {
             wishes = this.props.wishes.wishes.filter(({wish}) => wish.toLowerCase().includes(this.state.searchValue.trim().toLowerCase()))
+        }
+
+        if (this.state.column !== null) {
+            wishes =  _.sortBy(wishes, [this.state.column])
+            wishes = this.state.direction === 'ascending' ? wishes : wishes.reverse()
         }
 
         return (
@@ -119,13 +119,6 @@ class SearchView extends Component {
                         {wishes.map(wish =>
                             this.generateRow (wishes, wish)
                         )}
-                        {/*{_.map((data), ({category, Życzenia, Ulubione}) =>(*/}
-                            {/*<Table.Row key={Kategoria}>*/}
-                                {/*<Table.HeaderCell>{Kategoria}</Table.HeaderCell>*/}
-                                {/*<Table.HeaderCell>{Życzenia}</Table.HeaderCell>*/}
-                                {/*<Table.HeaderCell>{Ulubione}</Table.HeaderCell>*/}
-                            {/*</Table.Row>*/}
-                        {/*))}*/}
                 </Table.Body>
                 </Table>
                 <Button color='red' onClick={() =>
