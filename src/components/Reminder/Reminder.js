@@ -5,13 +5,9 @@ import { Message } from 'semantic-ui-react'
 class Reminder extends Component {
 
     state = { visible: true }
+        handleDismiss = () => {
+            this.setState({ visible: false })
 
-    handleDismiss = () => {
-        this.setState({ visible: false })
-
-        setTimeout(() => {
-            this.setState({ visible: true })
-        }, 2000)
     }
 
   render() {
