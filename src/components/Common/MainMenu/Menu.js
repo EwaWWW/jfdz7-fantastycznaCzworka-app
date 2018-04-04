@@ -12,6 +12,7 @@ import AddWish from '../../Views/WishesView/AddWish'
 import Auth from '../../Authentication/Auth'
 import SignOutButton from '../../Authentication/SignOutButton'
 import { openCloseModalWish } from '../../../state/modalAddWish'
+import Reminder from "../../Reminder/Reminder";
 
 
 
@@ -73,7 +74,6 @@ class MenuBar extends Component {
                         </Menu.Item>
 
                     </Sidebar>
-
                     <Sidebar.Pusher>
                         <Segment basic>
                             <Route exact path="/" component={SearchView}/>
