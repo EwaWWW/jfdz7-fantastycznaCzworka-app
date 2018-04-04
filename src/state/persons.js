@@ -47,12 +47,14 @@ export const disableSync = () => dispatch => {
 export const addPerson = (
     personName,
     personDoB,
-    personEmail
+    personEmail,
+    personWish
 ) => dispatch => {
     personsRef.push({
         name: personName,
         date: personDoB,
-        email: personEmail
+        email: personEmail,
+        wish: personWish
     })
 }
 export const removePerson = personId => dispatch =>
