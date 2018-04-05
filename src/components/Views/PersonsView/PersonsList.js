@@ -43,7 +43,7 @@ class PersonsList extends Component {
                                 </Table.Cell>
                                 <Table.Cell>{person.name}</Table.Cell>
 
-                                <Table.Cell>{person.wish && person.wish[0].wish }</Table.Cell>
+                                <Table.Cell>{person.wish}</Table.Cell>
                                 <Table.Cell>{person.email}</Table.Cell>
                                 <Table.Cell>{person.date}</Table.Cell>
                                 <Table.Cell collapsing>

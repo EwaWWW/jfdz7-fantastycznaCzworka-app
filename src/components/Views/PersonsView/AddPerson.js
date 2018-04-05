@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import { Form, Button,Modal, Icon, Dropdown } from 'semantic-ui-react'
 import { addPerson} from "../../../state/persons";
 import { connect } from 'react-redux';
-import wishes from "../../../state/wishes";
+
 
 
 const initState = {
@@ -21,13 +21,19 @@ class AddPerson extends Component {
             [name]: value
         })
     }
+    handleWish = (e, {value}) => {
+        this.setState({
+            personWish: value
+        })
+
+    }
     handleSubmit = event => {
 
         event.preventDefault();
 
-        const { personName, personDoB, personEmail } = this.state;
+        const { personName, personDoB, personEmail,  personWish} = this.state;
 
-        this.props.addPerson(personName, personDoB, personEmail);
+        this.props.addPerson(personName, personDoB, personEmail, personWish);
         this.setState({isOpenModal: false});
         this.setState(initState);
     }
@@ -59,7 +65,8 @@ class AddPerson extends Component {
                 key: wish.id
             }
         });
-
+console.log(searchWishes);
+console.log(this.state.personWish);
 
         return (
                 <Modal onClose={this.closeModal} open={this.state.isOpenModal} dimmer='blurring' trigger={<Button onClick={this.openModal} floated='right' icon  labelPosition='left' primary size='small'><Icon name='user' /> Dodaj osobę</Button>} closeIcon>
@@ -80,7 +87,7 @@ class AddPerson extends Component {
                             <input type="date" name="personDoB" onChange={this.handleChange} value={this.state['personDoB']}/>
                         </Form.Field>
                             <p>Wyszukaj życzenie</p>
-                            <Dropdown placeholder='Wyszukaj życzenie' fluid search selection options={searchWishes} />
+                            <Dropdown placeholder='Wyszukaj życzenie' onChange={this.handleWish} fluid search selection options={searchWishes} value={this.state.personWish} />
                             <Form.Field>
                         <Button type='submit'>Dodaj</Button>
                             </Form.Field>
