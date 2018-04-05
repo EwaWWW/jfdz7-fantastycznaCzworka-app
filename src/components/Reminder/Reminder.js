@@ -24,7 +24,7 @@ class Reminder extends Component {
               />
           )
       }
-  }
+      }
 }
 
 export default Reminder

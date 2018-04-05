@@ -2,10 +2,14 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import SignUpForm from './SignUpForm'
 import SignInForm from './SignInForm'
-import { Grid, Divider } from 'semantic-ui-react'
+import { Grid, Divider, Tab } from 'semantic-ui-react'
 
 class Auth extends Component {
     render() {
+
+        const tabs = [
+            { menuItem: }
+        ]
         return this.props.user === null ? (
 
             <Grid centered padded>

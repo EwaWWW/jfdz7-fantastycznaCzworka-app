@@ -11,8 +11,8 @@
 }
 .ui.dimmer {
     background: #00000099;
-    filter: blur(5px) grayscale(.7);
 }
+
 
 body {
     background-color: #c2b39a;

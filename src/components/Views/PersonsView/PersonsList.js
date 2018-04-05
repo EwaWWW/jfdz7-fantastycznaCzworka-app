@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import { Checkbox, Table, Button, Icon } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 import AddPerson from '../../Views/PersonsView/AddPerson'
-import {removePerson} from '../../../state/persons'
+import {removePerson, getPersonsDate} from '../../../state/persons'
 
 
 class PersonsList extends Component {
@@ -13,7 +13,7 @@ class PersonsList extends Component {
 
 
     render() {
-
+        console.log(getPersonsDate())
         const { persons} = this.props
 
         return (
