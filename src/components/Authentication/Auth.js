@@ -7,13 +7,10 @@ import { Grid, Divider, Tab } from 'semantic-ui-react'
 class Auth extends Component {
     render() {
 
-        const tabs = [
-            { menuItem: }
-        ]
         return this.props.user === null ? (
 
-            <Grid centered padded>
-                <Grid.Column  width={8}>
+            <Grid  centered padded>
+                <Grid.Column  width={7}>
                     <SignInForm/>
                          <Divider horizontal section>Lub</Divider>
                     <SignUpForm/>

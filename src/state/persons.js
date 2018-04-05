@@ -56,10 +56,10 @@ export const addPerson = (
     })
 }
 
-export const getPersonsDate = () => dispatch => {
+export const getPersonsDate = () => {
 
     const userUid = firebase.auth().currentUser.uid
-    const date = userUid.persons.personId
+    const date = userUid.persons.
     console.log(date)
 }
 
