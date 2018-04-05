@@ -11,7 +11,7 @@ import { signOut } from '../../state/auth'
                 return (
                 <Button icon labelPosition='left'
                         onClick={() => this.props.signOut()}>
-                    <Icon name='user' />
+                    <Icon name='log out' />
                 </Button>
                 )}
     }
