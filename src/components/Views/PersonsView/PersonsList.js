@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import { Checkbox, Table, Button, Icon } from 'semantic-ui-react'
+import { Checkbox, Table, Button, Icon,Popup } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 import AddPerson from '../../Views/PersonsView/AddPerson'
 import {removePerson, getPersonsDate} from '../../../state/persons'
@@ -21,11 +21,13 @@ class PersonsList extends Component {
                 <Table celled>
                     <Table.Header>
                         <Table.Row>
+                            <Table.HeaderCell></Table.HeaderCell>
+
                             <Table.HeaderCell>Imię i nazwisko</Table.HeaderCell>
                             <Table.HeaderCell>Życzenia</Table.HeaderCell>
                             <Table.HeaderCell>Adres email</Table.HeaderCell>
                             <Table.HeaderCell>Data urodzin</Table.HeaderCell>
-                            <Table.HeaderCell><Checkbox label="Wyślij automatycznie"/></Table.HeaderCell>
+                            <Table.HeaderCell></Table.HeaderCell>
                         </Table.Row>
                     </Table.Header>
 
@@ -34,13 +36,14 @@ class PersonsList extends Component {
 
                             <Table.Row key={person.id}>
                                 <Table.Cell>
-                                    <Button icon  data-person-id={person.id}
-                                            onClick={this.handleRemoveClick}><Icon name="delete" />
-                                    </Button>
+                                    <Popup
+                                        trigger={<Button icon data-person-id={person.id} onClick={this.handleRemoveClick}><Icon name="delete" /></Button>}
+                                        content='Usuń osobę'
+                                    />
                                 </Table.Cell>
                                 <Table.Cell>{person.name}</Table.Cell>
 
-                                <Table.Cell>{person.wish && person.wish[0].wish }</Table.Cell>
+                                <Table.Cell>{person.wish}</Table.Cell>
                                 <Table.Cell>{person.email}</Table.Cell>
                                 <Table.Cell>{person.date}</Table.Cell>
                                 <Table.Cell collapsing>

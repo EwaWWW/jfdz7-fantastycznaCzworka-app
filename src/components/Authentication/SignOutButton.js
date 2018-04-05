@@ -9,11 +9,10 @@ import { signOut } from '../../state/auth'
     class SignOutButton extends Component {
       render() {
                 return (
-
-                    <Button  onClick={() => this.props.signOut()}
-                             floated='right' icon labelPosition='left'
-                             primary size='small'>
-                        <Icon name='user' /></Button>
+                <Button icon labelPosition='left'
+                        onClick={() => this.props.signOut()}>
+                    <Icon name='log out' />
+                </Button>
                 )}
     }
 
