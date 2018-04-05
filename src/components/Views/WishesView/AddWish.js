@@ -25,10 +25,10 @@ class AddWish extends Component {
     };
 
     handleSubmit = (event) => {
-        console.log("jeden", this.props.auth.user.uid)
+        console.log("jeden", this.props.auth.user.uid);
         let wish = {wish: this.state.wishText, id: this.props.wishes.wishes.length +1, category: this.state.wishCategory, userId: this.props.auth.user.uid}
-        this.props.addWishFireBase(wish)
-        this.props.openCloseModalWish(false)
+        this.props.addWishFireBase(wish);
+        this.props.openCloseModalWish(false);
         this.setState({openModal: false});
     };
 
@@ -66,16 +66,16 @@ class AddWish extends Component {
 
 
 const mapStateToProps = (store) => {
-    console.log("storeAddWIsh", store)
+    console.log("storeAddWIsh", store);
     return {
         modalAddWish: store.modalAddWish.modalAddWish,
         wishes: store.wishes,
         auth: store.auth
-    }}
+    }};
 
 const mapDispatchToProps = dispatch => ({
     addWish: (wish) => dispatch(addWish(wish)) ,
     openCloseModalWish: (data) => dispatch (openCloseModalWish(data)),
     addWishFireBase: (wish) => dispatch(addWishFireBase(wish))
-})
+});
 export default connect (mapStateToProps, mapDispatchToProps) (AddWish)
