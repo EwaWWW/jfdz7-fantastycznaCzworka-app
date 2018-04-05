@@ -55,10 +55,10 @@ export const addPerson = (
         email: personEmail
     })
 }
-
-export const getPersonsDate = ( personDate ) => dispatch => {
-    personRef = firebase.database().ref('/app-user/' + userUid + '/persons')
-}
+//
+// export const getPersonsDate = ( personDate ) => dispatch => {
+//     personRef = firebase.database().ref('/app-user/' + userUid + '/persons')
+// }
 
 export const removePerson = personId => dispatch =>
 {console.log(personsRef.child(personId));

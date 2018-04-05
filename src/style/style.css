@@ -1,0 +1,43 @@
+.ui.red.button, .ui.button, .ui.labeled.icon.button, .ui.labeled.icon.buttons .button{
+    background-color: #9b3f40;
+    color: white;
+    margin: 5px;
+}
+
+.ui.red.button:hover, .ui.button:hover {
+    background-color: #763535;
+    color: whitesmoke;
+
+}
+.ui.dimmer {
+    background: #00000099;
+    filter: blur(5px) grayscale(.7);
+}
+
+body {
+    background-color: #c2b39a;
+    color: whitesmoke;
+    font-family: 'Lato', sans-serif;
+}
+
+.pushable>.pusher {
+    background-color: #c2b39a96;
+
+}
+.ui.form .field>label {
+    font-size: 1.2em;
+}
+.ui.menu, .ui.vertical.menu {
+    background-color: #dbd2c4;
+}
+.ui.vertical.menu {
+    background: #dbd2c47d;
+}
+a {
+    color: black;
+    font-size: 1.1em;
+}
+
+.ui.center.aligned.header, .ui.centered.header {
+    font-size: 1.6em;
+}
