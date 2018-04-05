@@ -54,11 +54,11 @@ class AddPerson extends Component {
         const {wishes} = this.props;
         const searchWishes = wishes.map(wish => {
             return {
-                text:wish.wish
+                text:wish.wish,
+                value: wish.wish,
+                key: wish.id
             }
         });
-
-
 
 
         return (
