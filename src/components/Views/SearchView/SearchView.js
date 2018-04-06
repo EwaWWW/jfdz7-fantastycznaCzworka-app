@@ -1,3 +1,4 @@
+import _ from 'lodash'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
@@ -6,7 +7,6 @@ import { Input } from 'semantic-ui-react'
 
 import SearchFilter from "./SearchFilter"
 import TableRowWish from "../../Views/WishesView/TableRowWish"
-import wishes from "../../../Data/wishes"
 import AddWish from '../WishesView/AddWish'
 import {openCloseModalWish} from "../../../state/modalAddWish";
 import '../../../style/SearchView.css'
@@ -15,11 +15,35 @@ import '../../../style/SearchView.css'
 class SearchView extends Component {
 
     state = {
-        allWishes: wishes,
+        column: null,
+        direction: null,
         category: '',
         searchValue: ''
     };
 
+    handleSort = clickedColumn => () => {
+        const { column, direction } = this.state;
+
+        if (column !== clickedColumn) {
+            this.setState({
+                column: clickedColumn,
+                direction: 'ascending',
+            });
+
+            return
+        }
+
+        this.setState({
+            direction: direction === 'ascending' ? 'descending' : 'ascending',
+        })
+    };
+
+
+    returnAllCategory = (e) => {
+        this.setState ({
+            category: (e).category
+        })
+    };
 
     updateCategory = (category) => {
         this.setState({
@@ -35,8 +59,8 @@ class SearchView extends Component {
     };
 
     generateRow = (wishes, wish) => {
-        console.log("wi", wishes, wish, this.props.wishes)
-        let test = wish.favorite!==undefined?wish.favorite:false
+        console.log("wi", wishes, wish, this.props.wishes);
+        let test = wish.favorite!==undefined?wish.favorite:false;
 
         return (
             <TableRowWish
@@ -46,12 +70,14 @@ class SearchView extends Component {
                 favorite={test}
             />
         )
-    }
+    };
 
     render() {
 
+        const { column, direction } = this.state;
+
         let wishes = [];
-        let userWishes = this.props.wishes.wishes.filter(wish => wish.userId === undefined || wish.userId === this.props.auth.user.uid)
+        let userWishes = this.props.wishes.wishes.filter(wish => wish.userId === undefined || wish.userId === this.props.auth.user.uid);
 
         if (this.state.category === "ulubione") {
             wishes = userWishes.filter(wish => wish.favorite === true)
@@ -66,6 +92,11 @@ class SearchView extends Component {
                 .filter(({wish}) => wish.toLowerCase().includes(this.state.searchValue.trim().toLowerCase()))
         }
 
+        if (this.state.column !== null) {
+            wishes =  _.sortBy(wishes, [this.state.column]);
+            wishes = this.state.direction === 'ascending' ? wishes : wishes.reverse()
+        }
+
         return (
             <React.Fragment>
                 <Input className="search-input"
@@ -74,16 +105,17 @@ class SearchView extends Component {
                        iconPosition="left"
                        icon="search"/>
 
-                <Grid centered padded>
+                <Grid centered padded >
                       <SearchFilter
                              filterToggle={this.updateCategory}/>
+                      <Button color='red' onClick={this.returnAllCategory}>WSZYSTKIE KATEGORIE</Button>
                 </Grid>
-                <Table celled class="ui inverted grey table">
+                <Table celled class="ui inverted grey table" sortable fixed>
                     <Table.Header>
                         <Table.Row>
-                            <Table.HeaderCell><b>Kategoria</b></Table.HeaderCell>
-                            <Table.HeaderCell width={10}><b>Życzenie</b></Table.HeaderCell>
-                            <Table.HeaderCell width={1}><b>Dodaj do ulubionych</b></Table.HeaderCell>
+                            <Table.HeaderCell width={4} sorted={column === 'category' ? direction : null} onClick={this.handleSort('category')} sort><b>Kategoria</b></Table.HeaderCell>
+                            <Table.HeaderCell width={8}><b>Życzenie</b></Table.HeaderCell>
+                            <Table.HeaderCell width={3}><b>Dodaj do ulubionych</b></Table.HeaderCell>
                         </Table.Row>
                     </Table.Header>
                     <Table.Body>
@@ -106,8 +138,8 @@ const mapStateToProps = (store) => {
     return {
         wishes: store.wishes,
         auth: store.auth
-    }}
+    }};
 const mapDispatchToProps = dispatch => ({
     openCloseModalWish: (data) => dispatch(openCloseModalWish(data))
-})
+});
 export default connect (mapStateToProps, mapDispatchToProps) (SearchView)
