@@ -1,8 +1,8 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-import {signUp, signUpWithFacebook, translations} from '../../state/auth'
+import {signUp, translations} from '../../state/auth'
 
-import { Form, Button, Header, Icon, Divider, Label } from 'semantic-ui-react'
+import { Form, Button, Header, Label } from 'semantic-ui-react'
 
 class SignUpForm extends Component {
 
@@ -43,6 +43,8 @@ class SignUpForm extends Component {
         return (
 
             <Form onSubmit={this.handleSubmit}>
+                <Header>Witaj w aplikacji Generator Życzeń</Header>
+                <p>służącej do zarządzania i wysyłania życzeń twoim bliskim!</p>
                 <Header textAlign='center'>Zarejestruj się:</Header>
                 {this.state.error &&
                 <Label size='large' basic color='red'>
@@ -55,11 +57,7 @@ class SignUpForm extends Component {
                     <label>Hasło</label>
                     {this.renderInput('password', 'password')}</Form.Field>
                 <Button fluid>Zarejestruj się</Button>
-                <Divider horizontal section>Lub</Divider>
-                <Button fluid color='facebook'
-                onClick={signUpWithFacebook()}>
-                    <Icon name='facebook' /> Zarejestruj przez Facebook
-                </Button>
+
             </Form>
         )
     }

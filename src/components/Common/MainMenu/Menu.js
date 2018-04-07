@@ -12,7 +12,6 @@ import AddWish from '../../Views/WishesView/AddWish'
 import Auth from '../../Authentication/Auth'
 import SignOutButton from '../../Authentication/SignOutButton'
 import { openCloseModalWish } from '../../../state/modalAddWish'
-import Reminder from "../../Reminder/Reminder";
 
 
 
