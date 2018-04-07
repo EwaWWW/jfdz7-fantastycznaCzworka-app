@@ -1,7 +1,7 @@
-import wishesFromFile from '../Data/wishes';
+// import wishesFromFile from '../Data/wishes';
 import firebase from 'firebase'
 
-const URL_FIREBASE = "https://fc-generator-zyczen.firebaseio.com/app-user/wishes"
+// const URL_FIREBASE = "https://fc-generator-zyczen.firebaseio.com/app-user/wishes"
 
 const initialState = { wishes: [], favorites: [] }
 
@@ -21,7 +21,7 @@ let wishesRef
 let callback
 
 export const enableWishSync = () => dispatch => {
-    const userUid = firebase.auth().currentUser.uid
+    // const userUid = firebase.auth().currentUser.uid
 
     wishesRef = firebase.database().ref('/app-user/wishes')
     callback = snapshot => {
