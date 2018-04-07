@@ -7,7 +7,7 @@ import {removePerson, getPersonsDate} from '../../../state/persons'
 
 class PersonsList extends Component {
     handleRemoveClick = event => {
-        const personId = event.target.dataset.personId
+        const personId = event.currentTarget.dataset.personId
         this.props.removePerson(personId)
     }
 

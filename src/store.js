@@ -13,27 +13,27 @@ const reducer = combineReducers({
     persons,
     wishes,
     modalAddWish
-})
+});
 
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const store = createStore(
     reducer,
     composeEnhancers(
         applyMiddleware(thunk)
     )
-)
+);
 
 firebase.auth().onAuthStateChanged(user => {
     if (user !== null) {
-        store.dispatch(enableSync())
+        store.dispatch(enableSync());
         store.dispatch(enableWishSync())
     } else {
-        store.dispatch(disableSync())
+        store.dispatch(disableSync());
         store.dispatch(disableWishSync())
     }
     store.dispatch(setUser(user))
-})
+});
 
 
 export default store
