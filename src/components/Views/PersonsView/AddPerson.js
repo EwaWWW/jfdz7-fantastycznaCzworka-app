@@ -67,8 +67,8 @@ class AddPerson extends Component {
         });
 
         return (
-                <Modal onClose={this.closeModal} open={this.state.isOpenModal} dimmer='blurring' trigger={<Button onClick={this.openModal} floated='right' icon  labelPosition='left' primary size='small'><Icon name='user' /> Dodaj osobę</Button>} closeIcon>
-                    <Modal.Header>Dodaj osobę</Modal.Header>
+                <Modal onClose={this.closeModal} open={this.state.isOpenModal} dimmer='blurring' trigger={<Button onClick={this.openModal} floated='right' icon  labelPosition='left' primary size='small'><Icon name='user' /> Dodaj osobę</Button>}>
+                    {/*<Modal.Header>Dodaj osobę</Modal.Header>*/}
                     <Modal.Content>
                         <Form onSubmit={this.handleSubmit}>
 
