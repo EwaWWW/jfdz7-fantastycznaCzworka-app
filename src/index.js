@@ -8,7 +8,7 @@ import store from './store'
 import Auth from './components/Authentication/Auth'
 import './index.css';
 import 'semantic-ui-css/semantic.min.css';
-import style from './style/style.css'
+import './style/style.css'
 
 
 import App from './components/App';

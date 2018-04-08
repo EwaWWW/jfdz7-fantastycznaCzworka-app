@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Button } from 'semantic-ui-react'
 import categories from '../../../Data/wishesCategories'
 
-import style from '../../../style/style.css'
+import '../../../style/style.css'
 
 class SearchFilter extends Component {
 

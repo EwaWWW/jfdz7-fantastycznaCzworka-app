@@ -54,9 +54,6 @@ class MenuBar extends Component {
                 <Sidebar.Pushable as={Segment}>
                     <Sidebar as={Menu} animation='push' width='thin' visible={visible}  icon='labeled' vertical>
 
-                        <Menu.Item name='profil'>
-                            Profil użytkownika
-                        </Menu.Item>
 
                         <Menu.Item name='search'>
                             <Link to="/">Wyszukiwarka życzeń</Link>
