@@ -46,7 +46,7 @@ class AddWish extends Component {
                 <Modal open={this.props.modalAddWish} onClose={this.closeModal}>
                     <Modal.Content>
                         <Modal.Description>
-                            <Icon className="closeIcon" onClick={() => this.props.openCloseModalWish(false)} name='close'/>
+                            <Icon className="closeIcon" onClick={() => this.props.openCloseModalWish(false)} color="black" name='close'/>
                             <Header>Dodawanie życzeń</Header>
                             <Form onSubmit={this.handleSubmit}>
                               <TextArea placeholder='Wpisz treść życzeń' onChange={this.handleText} />
