@@ -2,7 +2,8 @@ import React, {Component} from 'react'
 import { Checkbox, Table, Button, Icon,Popup } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 import AddPerson from '../../Views/PersonsView/AddPerson'
-import {removePerson, getPersonsDate} from '../../../state/persons'
+import {removePerson} from '../../../state/persons'
+import EditPersonForm from './EditPersonForm'
 
 
 class PersonsList extends Component {
@@ -13,7 +14,7 @@ class PersonsList extends Component {
 
 
     render() {
-        console.log(getPersonsDate())
+
         const { persons} = this.props
 
         return (
@@ -21,7 +22,7 @@ class PersonsList extends Component {
                 <Table celled>
                     <Table.Header>
                         <Table.Row>
-                            <Table.HeaderCell></Table.HeaderCell>
+                            <Table.HeaderCell colSpan='2'></Table.HeaderCell>
 
                             <Table.HeaderCell>Imię i nazwisko</Table.HeaderCell>
                             <Table.HeaderCell>Życzenia</Table.HeaderCell>
@@ -35,6 +36,15 @@ class PersonsList extends Component {
                         {persons.map(person =>
 
                             <Table.Row key={person.id}>
+                                <Table.Cell>
+                                    <EditPersonForm
+                                    name={person.name}
+                                    date={person.date}
+                                    email={person.email}
+                                    wish={person.wish}
+                                    id={person.id}
+                                    />
+                                </Table.Cell>
                                 <Table.Cell>
                                     <Popup
                                         trigger={<Button icon data-person-id={person.id} onClick={this.handleRemoveClick}><Icon name="delete" /></Button>}
