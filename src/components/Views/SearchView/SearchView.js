@@ -8,9 +8,8 @@ import { Input } from 'semantic-ui-react'
 import SearchFilter from "./SearchFilter"
 import TableRowWish from "../../Views/WishesView/TableRowWish"
 import AddWish from '../WishesView/AddWish'
-import {openCloseModalWish} from "../../../state/modalAddWish";
-import '../../../style/SearchView.css'
-
+import {openCloseModalWish} from "../../../state/modalAddWish"
+import '../../../style/WishesView.css';
 
 class SearchView extends Component {
 
