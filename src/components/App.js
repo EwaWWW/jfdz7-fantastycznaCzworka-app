@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Grid } from 'semantic-ui-react'
+import { Grid, Container } from 'semantic-ui-react'
 
 import MenuBar from './Common/MainMenu/Menu';
 import AddWish from './Views/WishesView/AddWish'
@@ -12,11 +12,15 @@ class App extends Component {
 
 
       <React.Fragment>
-          <Grid container>
+          <Container fluid>
+          <Grid>
+
               <Grid.Column>
                  <MenuBar/>
               </Grid.Column>
+
           </Grid>
+          </Container>
                 <AddWish />
       </React.Fragment>
     )

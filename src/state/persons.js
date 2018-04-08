@@ -57,6 +57,9 @@ export const addPerson = (
         wish: personWish
     })
 }
+export const updatePerson = (personId, updatedPerson) => dispatch => {
+    personsRef.child(personId).update(updatedPerson)
+}
 export const removePerson = personId => dispatch =>
 {
     personsRef.child(personId).remove()

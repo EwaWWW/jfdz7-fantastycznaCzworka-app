@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Form, TextArea, Button, Header, Modal } from 'semantic-ui-react'
+import { Form, TextArea, Button, Header, Modal, Icon } from 'semantic-ui-react'
 
 import wishesCategories from '../../../Data/wishesCategories';
 import {openCloseModalWish} from "../../../state/modalAddWish";
@@ -46,6 +46,7 @@ class AddWish extends Component {
                 <Modal open={this.props.modalAddWish} onClose={this.closeModal}>
                     <Modal.Content>
                         <Modal.Description>
+                            <Icon className="closeIcon" onClick={() => this.props.openCloseModalWish(false)} color="black" name='close'/>
                             <Header>Dodawanie życzeń</Header>
                             <Form onSubmit={this.handleSubmit}>
                               <TextArea placeholder='Wpisz treść życzeń' onChange={this.handleText} />

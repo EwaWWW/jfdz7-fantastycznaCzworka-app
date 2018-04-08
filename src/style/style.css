@@ -1,0 +1,85 @@
+.ui.red.button, .ui.button, .ui.labeled.icon.button, .ui.labeled.icon.buttons .button{
+    background-color: #9b3f40;
+    color: white;
+    margin: 5px;
+}
+
+.ui.red.button:hover, .ui.button:hover {
+    background-color: #763535;
+    color: whitesmoke;
+
+}
+.ui.dimmer {
+    background: #00000099;
+}
+
+
+body {
+    background: url(cake.jpg) no-repeat center center fixed ;
+    background-size: cover;
+    height: 100%;
+    /*overflow: hidden;*/
+    color: whitesmoke;
+    font-family: 'Lato', sans-serif;
+
+}
+
+.pushable>.pusher {
+    background-color: #c2b39a96;
+
+}
+.ui.form .field>label {
+    font-size: 1.2em;
+}
+.ui.menu, .ui.vertical.menu {
+    background-color: #dbd2c4;
+}
+.ui.vertical.menu {
+    background: #dbd2c47d;
+}
+a {
+    color: black;
+    font-size: 1.1em;
+}
+
+.ui.center.aligned.header, .ui.centered.header {
+    font-size: 1.6em;
+}
+
+.ui.tabular.menu+.attached:not(.top).segment, .ui.tabular.menu+.attached:not(.top).segment+.attached:not(.top).segment {
+    width: 50%;
+    text-align: center;
+    margin: auto;
+    padding: auto;
+    border-radius: 5px;
+}
+
+.ui.attached.menu, .ui.attached.tabular.menu {
+    width: 50%;
+    text-align: center;
+    margin: auto;
+    padding: auto;
+    font-size: 1.1em;
+
+}
+
+.auth {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+}
+
+.ui.tabular.menu .item {
+    background: #e7e7e7;
+}
+
+.ui.tabular.menu:hover .item:hover {
+    background-color: white;
+}
+
+.ui.form>p {
+    color: black;
+}
