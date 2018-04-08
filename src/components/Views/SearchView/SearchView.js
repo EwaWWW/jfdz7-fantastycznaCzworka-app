@@ -114,7 +114,7 @@ class SearchView extends Component {
                         <Table.Row>
                             <Table.HeaderCell width={4} sorted={column === 'category' ? direction : null} onClick={this.handleSort('category')} sort><b>Kategoria</b></Table.HeaderCell>
                             <Table.HeaderCell width={8}><b>Życzenie</b></Table.HeaderCell>
-                            <Table.HeaderCell width={3}><b>Dodaj do ulubionych</b></Table.HeaderCell>
+                            <Table.HeaderCell width={4}><b>Dodaj do ulubionych</b></Table.HeaderCell>
                         </Table.Row>
                     </Table.Header>
                     <Table.Body>
