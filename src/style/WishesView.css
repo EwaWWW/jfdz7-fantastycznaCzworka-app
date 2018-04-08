@@ -1,3 +1,4 @@
+/*TABLE*/
 .ui.table td {
     text-align: center;
 }
@@ -9,4 +10,153 @@
 .ui.table {
     width: 70%;
     margin: 100px 150px;
+}
+/*SEARCH VIEW*/
+
+.search-input {
+
+    width: 70%;
+    margin: 10px 150px 20px;
+    padding: 10px;
+    text-align: center;
+    border: 1px grey;
+    outline: none;
+    font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;;
+    font-size: 12pt;
+}
+/*RWD*/
+@media screen and (max-width: 576px) {
+    .search-input{
+        padding: 0;
+        width: 100%;
+        margin: 0 auto;
+        text-align: center;
+    }
+    .ui.input>input{
+        font-size: 12px;
+    }
+    .ui.red.button{
+        width: 40%;
+        margin-top: 10px;
+        font-size: 12px;
+        text-align: center;
+    }
+    .ui .centered .padded .grid {
+        width: 90%;
+    }
+    .ui.table{
+        padding-top: 20px;
+        width: 90%;
+        font-size: 12px;
+        margin: 0 auto;
+        margin-top: 20px;
+    }
+}
+
+@media screen and (min-width: 576px) {
+    .search-input{
+        padding: 0;
+        width: 90%;
+        margin: 20px;
+        text-align: center;
+    }
+    .ui.input>input{
+        font-size: 12px;
+    }
+    .ui.red.button{
+        width: 20%;
+        margin-top: 10px;
+        font-size: 12px;
+        text-align: center;
+    }
+    .ui .centered .padded .grid {
+        width: 50%;
+    }
+    .ui.table{
+        padding-top: 10px;
+        margin: 20px;
+        width: 90%;
+        font-size: 12px;
+    }
+}
+@media screen and (min-width: 768px) {
+    .search-input{
+        padding: 0;
+        width: 70%;
+        margin: 0 auto;
+        text-align: center;
+    }
+    .ui.input>input{
+        font-size: 12px;
+    }
+    .ui.red.button{
+        width: 20%;
+        margin-top: 10px;
+        font-size: 15px;
+        text-align: center;
+    }
+    .ui .centered .padded .grid {
+        width: 50%;
+    }
+    .ui.table{
+        width: 80%;
+        font-size: 15px;
+        margin: 0 auto;
+        margin-top: 20px;
+    }
+}
+
+@media screen and (min-width: 992px) {
+.search-input{
+    width: 70%;
+    margin: 10px 150px 20px;
+    padding: 10px;
+    text-align: center;
+}
+.ui.input>input{
+    font-size: 12px;
+}
+.ui.red.button{
+    width: 20%;
+    margin-top: 10px;
+    font-size: 15px;
+    text-align: center;
+}
+.ui .centered .padded .grid {
+    width: 45%;
+}
+.ui.table{
+    width: 70%;
+    font-size: 15px;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+}
+
+
+@media screen and (min-width: 1200px) {
+    .search-input{
+        width: 70%;
+        margin: 10px 150px 20px;
+        padding: 10px;
+        text-align: center;
+    }
+    .ui.input>input{
+        font-size: 12px;
+    }
+    .ui.red.button{
+        width: 20%;
+        margin-top: 10px;
+        font-size: 15px;
+        text-align: center;
+    }
+    .ui .centered .padded .grid {
+        width: 45%;
+    }
+    .ui.table{
+        width: 70%;
+        font-size: 15px;
+        margin: 0 auto;
+        margin-top: 20px;
+    }
 }
