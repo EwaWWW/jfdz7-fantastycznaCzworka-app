@@ -57,6 +57,14 @@ export const addPerson = (
         wish: personWish
     })
 }
+
+export const getPersonsDate = () => {
+
+    const userUid = firebase.auth().currentUser.uid
+    const date = userUid.persons.
+    console.log(date)
+}
+
 export const removePerson = personId => dispatch =>
 {
     personsRef.child(personId).remove()

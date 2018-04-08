@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Grid,Container } from 'semantic-ui-react'
+import { Grid, Container } from 'semantic-ui-react'
 
 import MenuBar from './Common/MainMenu/Menu';
 import AddWish from './Views/WishesView/AddWish'

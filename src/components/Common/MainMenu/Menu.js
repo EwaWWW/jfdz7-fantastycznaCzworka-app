@@ -73,7 +73,6 @@ class MenuBar extends Component {
                         </Menu.Item>
 
                     </Sidebar>
-
                     <Sidebar.Pusher>
                         <Segment basic>
                             <Route exact path="/" component={SearchView}/>

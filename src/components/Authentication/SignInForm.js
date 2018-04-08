@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
-import { Form, Button, Header, Label } from 'semantic-ui-react'
+import { Form, Button, Header, Label, Divider, Icon } from 'semantic-ui-react'
 import {connect} from 'react-redux'
-import {signIn, translations} from '../../state/auth'
+import {signIn, signUpWithFacebook, translations} from '../../state/auth'
 
 class SignInForm extends Component {
     state = {
@@ -37,6 +37,8 @@ class SignInForm extends Component {
     render() {
         return (
             <Form onSubmit={this.handleSubmit}>
+                <Header>Witaj w aplikacji Generator Życzeń</Header>
+                <p>służącej do zarządzania i wysyłania życzeń twoim bliskim!</p>
                 <Header textAlign='center'>Zaloguj się:</Header>
                 {this.state.error &&
                 <Label size='large' basic color='red'>
@@ -49,6 +51,11 @@ class SignInForm extends Component {
                     <label>Hasło:</label>
                     {this.renderInput('password', 'password')}</Form.Field>
                 <Button fluid>Zaloguj</Button>
+                <Divider horizontal section>Lub</Divider>
+                <Button fluid color='facebook'
+                        onClick={signUpWithFacebook()}>
+                    <Icon name='facebook' /> Zarejestruj przez Facebook
+                </Button>
             </Form>
         )
     }
